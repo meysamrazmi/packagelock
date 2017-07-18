@@ -22,163 +22,99 @@ Partial Class FrmOfflineRegister
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmOfflineRegister))
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.lblPUID = New System.Windows.Forms.Label()
         Me.txtConfirmCode = New System.Windows.Forms.TextBox()
         Me.BtnActivate = New System.Windows.Forms.Button()
         Me.TxtSerial = New System.Windows.Forms.TextBox()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.textPUID = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.Transparent
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.PictureBox5, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(369, 12)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(78, 36)
-        Me.TableLayoutPanel1.TabIndex = 25
         '
         'PictureBox5
         '
         Me.PictureBox5.BackColor = System.Drawing.Color.Transparent
-        Me.PictureBox5.BackgroundImage = Global.ExpTree_Demo.My.Resources.Resources._exit
+        Me.PictureBox5.BackgroundImage = Global.ExpTree_Demo.My.Resources.Resources.close_o
         Me.PictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.PictureBox5.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox5.Location = New System.Drawing.Point(42, 3)
+        Me.PictureBox5.Location = New System.Drawing.Point(426, 3)
         Me.PictureBox5.Name = "PictureBox5"
-        Me.PictureBox5.Size = New System.Drawing.Size(25, 19)
+        Me.PictureBox5.Size = New System.Drawing.Size(21, 21)
         Me.PictureBox5.TabIndex = 22
         Me.PictureBox5.TabStop = False
         '
-        'GroupBox1
-        '
-        Me.GroupBox1.BackColor = System.Drawing.Color.Transparent
-        Me.GroupBox1.Controls.Add(Me.Label4)
-        Me.GroupBox1.Controls.Add(Me.Label3)
-        Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.ForeColor = System.Drawing.Color.LightGray
-        Me.GroupBox1.Location = New System.Drawing.Point(12, 54)
-        Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.GroupBox1.Size = New System.Drawing.Size(424, 109)
-        Me.GroupBox1.TabIndex = 26
-        Me.GroupBox1.TabStop = False
-        Me.GroupBox1.Text = "راهنما"
-        '
-        'Label4
-        '
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label4.Location = New System.Drawing.Point(245, 84)
-        Me.Label4.Name = "Label4"
-        Me.Label4.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label4.Size = New System.Drawing.Size(88, 22)
-        Me.Label4.TabIndex = 3
-        Me.Label4.Text = "021-88272694"
-        '
-        'Label3
-        '
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label3.Location = New System.Drawing.Point(330, 84)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(88, 22)
-        Me.Label3.TabIndex = 2
-        Me.Label3.Text = "*شماره تماس: "
-        '
-        'Label2
-        '
-        Me.Label2.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label2.Location = New System.Drawing.Point(64, 48)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(354, 36)
-        Me.Label2.TabIndex = 1
-        Me.Label2.Text = "- در صورت عدم دسترسی به اینترنت با شرکت 808 تماس گرفته و درخواست فعالسازی آفلاین " &
-    "نمایید"
-        '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Tahoma", 9.0!)
-        Me.Label1.Location = New System.Drawing.Point(64, 22)
-        Me.Label1.Name = "Label1"
-        Me.Label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.Label1.Size = New System.Drawing.Size(354, 14)
-        Me.Label1.TabIndex = 0
-        Me.Label1.Text = "- در صورت دسترسی به اینترنت لطفا از فعالساز اینترنتی استفاده کنید"
-        '
-        'lblPUID
-        '
-        Me.lblPUID.AutoSize = True
-        Me.lblPUID.BackColor = System.Drawing.Color.Transparent
-        Me.lblPUID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPUID.ForeColor = System.Drawing.SystemColors.Highlight
-        Me.lblPUID.Location = New System.Drawing.Point(33, 274)
-        Me.lblPUID.Name = "lblPUID"
-        Me.lblPUID.Size = New System.Drawing.Size(0, 24)
-        Me.lblPUID.TabIndex = 27
-        '
         'txtConfirmCode
         '
-        Me.txtConfirmCode.BackColor = System.Drawing.Color.MediumTurquoise
-        Me.txtConfirmCode.Font = New System.Drawing.Font("Lucida Fax", 26.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtConfirmCode.ForeColor = System.Drawing.Color.Indigo
-        Me.txtConfirmCode.Location = New System.Drawing.Point(59, 327)
+        Me.txtConfirmCode.BackColor = System.Drawing.Color.White
+        Me.txtConfirmCode.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtConfirmCode.Font = New System.Drawing.Font("IRANSans", 10.0!)
+        Me.txtConfirmCode.ForeColor = System.Drawing.Color.DimGray
+        Me.txtConfirmCode.Location = New System.Drawing.Point(91, 350)
         Me.txtConfirmCode.Multiline = True
         Me.txtConfirmCode.Name = "txtConfirmCode"
-        Me.txtConfirmCode.Size = New System.Drawing.Size(336, 49)
-        Me.txtConfirmCode.TabIndex = 34
-        Me.txtConfirmCode.Text = "Code"
+        Me.txtConfirmCode.Size = New System.Drawing.Size(266, 20)
+        Me.txtConfirmCode.TabIndex = 1
+        Me.txtConfirmCode.Text = "کد دریافتی"
         Me.txtConfirmCode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'BtnActivate
         '
+        Me.BtnActivate.BackColor = System.Drawing.Color.Transparent
+        Me.BtnActivate.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.BtnActivate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(76, Byte), Integer), CType(CType(175, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.BtnActivate.FlatAppearance.BorderSize = 0
+        Me.BtnActivate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
+        Me.BtnActivate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
+        Me.BtnActivate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BtnActivate.Font = New System.Drawing.Font("Tahoma", 11.0!)
-        Me.BtnActivate.Location = New System.Drawing.Point(23, 382)
+        Me.BtnActivate.ForeColor = System.Drawing.Color.White
+        Me.BtnActivate.Location = New System.Drawing.Point(37, 426)
         Me.BtnActivate.Name = "BtnActivate"
         Me.BtnActivate.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.BtnActivate.Size = New System.Drawing.Size(413, 42)
-        Me.BtnActivate.TabIndex = 40
-        Me.BtnActivate.Text = "فعال کن!"
-        Me.BtnActivate.UseVisualStyleBackColor = True
+        Me.BtnActivate.Size = New System.Drawing.Size(375, 37)
+        Me.BtnActivate.TabIndex = 0
+        Me.BtnActivate.UseVisualStyleBackColor = False
         '
         'TxtSerial
         '
-        Me.TxtSerial.BackColor = System.Drawing.SystemColors.ControlDarkDark
-        Me.TxtSerial.ForeColor = System.Drawing.SystemColors.Info
-        Me.TxtSerial.Location = New System.Drawing.Point(59, 301)
+        Me.TxtSerial.BackColor = System.Drawing.Color.White
+        Me.TxtSerial.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.TxtSerial.Font = New System.Drawing.Font("IRANSans", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TxtSerial.ForeColor = System.Drawing.Color.DimGray
+        Me.TxtSerial.Location = New System.Drawing.Point(92, 389)
+        Me.TxtSerial.Multiline = True
         Me.TxtSerial.Name = "TxtSerial"
-        Me.TxtSerial.Size = New System.Drawing.Size(336, 20)
-        Me.TxtSerial.TabIndex = 32
-        Me.TxtSerial.Text = "Serial ...."
+        Me.TxtSerial.Size = New System.Drawing.Size(266, 20)
+        Me.TxtSerial.TabIndex = 2
+        Me.TxtSerial.Text = "سریال فعال سازی"
+        Me.TxtSerial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
+        '
+        'textPUID
+        '
+        Me.textPUID.BackColor = System.Drawing.Color.FromArgb(CType(CType(57, Byte), Integer), CType(CType(57, Byte), Integer), CType(CType(57, Byte), Integer))
+        Me.textPUID.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.textPUID.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.textPUID.ForeColor = System.Drawing.Color.Yellow
+        Me.textPUID.Location = New System.Drawing.Point(27, 275)
+        Me.textPUID.Name = "textPUID"
+        Me.textPUID.ReadOnly = True
+        Me.textPUID.Size = New System.Drawing.Size(396, 22)
+        Me.textPUID.TabIndex = 43
+        Me.textPUID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'FrmOfflineRegister
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.ExpTree_Demo.My.Resources.Resources.offline
-        Me.ClientSize = New System.Drawing.Size(459, 441)
+        Me.BackgroundImage = Global.ExpTree_Demo.My.Resources.Resources.offline1
+        Me.ClientSize = New System.Drawing.Size(450, 480)
+        Me.Controls.Add(Me.textPUID)
+        Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.TxtSerial)
         Me.Controls.Add(Me.BtnActivate)
         Me.Controls.Add(Me.txtConfirmCode)
-        Me.Controls.Add(Me.lblPUID)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FrmOfflineRegister"
@@ -186,24 +122,14 @@ Partial Class FrmOfflineRegister
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "DlgOfflineRegister"
-        Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox1.ResumeLayout(False)
-        Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents PictureBox5 As PictureBox
-    Friend WithEvents GroupBox1 As GroupBox
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents lblPUID As Label
     Friend WithEvents txtConfirmCode As TextBox
     Friend WithEvents BtnActivate As Button
     Friend WithEvents TxtSerial As TextBox
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
+    Friend WithEvents textPUID As TextBox
 End Class

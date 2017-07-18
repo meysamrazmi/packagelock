@@ -13,7 +13,6 @@ Public Class FrmVideoList
 
     Dim minimized As Boolean
 
-
     Private Sub FrmVideoList_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown, lblTitle.MouseDown
         drag = True
         mousex = Windows.Forms.Cursor.Position.X - Me.Left
@@ -32,18 +31,17 @@ Public Class FrmVideoList
     End Sub
 
     Private Sub FrmVideoList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Me.Width = Screen.PrimaryScreen.Bounds.Width - 100
-        Me.Height = Screen.PrimaryScreen.Bounds.Height - 100
-        Me.Left = (Screen.PrimaryScreen.WorkingArea.Width - Me.Width) / 2
-        Me.Top = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
+        Dim iran As Font = CustomFont.GetInstance(10, FontStyle.Regular)
+        lblTitle.Font = CustomFont.GetInstance(14, FontStyle.Regular)
+        open_explorer.Font = iran
+        help_btn.Font = iran
+        help1_btn.Font = iran
+        other_btn.Font = iran
 
-        ImageListView1.SetRenderer(New ImageListViewRenderers.TilesRenderer)
-
+        ImageListView1.SetRenderer(New ImageListViewRenderers.TilesRenderer) 'TilesRenderer
         Dim iniArray As New List(Of String())
-
         Dim files As String() = Directory.GetFiles(videoDetailsDir)
         ImageListView1.Items.AddRange(files)
-
 
         Me.WindowState = 0
         isLogoWorkComplete = True
@@ -57,7 +55,7 @@ Public Class FrmVideoList
         Try
             For i As Integer = 1 To 100
                 Me.Invoke(New Action(Of Integer)(AddressOf LoadOpacityChild), i)
-                System.Threading.Thread.Sleep(10)
+                System.Threading.Thread.Sleep(5)
             Next
         Catch
         End Try
@@ -90,44 +88,46 @@ Public Class FrmVideoList
         End If
     End Sub
 
-    Private Sub lblShowExplorer_Click(sender As Object, e As EventArgs) Handles lblShowExplorer.Click
+    Private Sub open_explorer_Click(sender As Object, e As EventArgs) Handles open_explorer.Click
         FrmsOpenCount -= 1
         FrmExplorerObj.Show()
         Me.Hide()
     End Sub
 
-    Private Sub lblShowExplorer_MouseEnter(sender As Object, e As EventArgs) Handles lblShowExplorer.MouseEnter
-        lblShowExplorer.BackColor = Color.FromArgb(60, 60, 70)
+    Private Sub open_explorer_MouseEnter(sender As Object, e As EventArgs) Handles open_explorer.MouseEnter
+        open_explorer.BackColor = Color.White
     End Sub
 
-    Private Sub lblShowExplorer_MouseLeave(sender As Object, e As EventArgs) Handles lblShowExplorer.MouseLeave
-        lblShowExplorer.BackColor = Color.FromArgb(70, 70, 80)
+    Private Sub open_explorer_MouseLeave(sender As Object, e As EventArgs) Handles open_explorer.MouseLeave
+        open_explorer.BackColor = Color.Transparent
     End Sub
 
-    Private Sub lblHelp_MouseEnter(sender As Object, e As EventArgs) Handles lblHelp.MouseEnter
-        lblHelp.BackColor = Color.FromArgb(60, 70, 60)
+    Private Sub help_btn_MouseEnter(sender As Object, e As EventArgs) Handles help_btn.MouseEnter
+        help_btn.BackColor = Color.White
     End Sub
 
-    Private Sub lblHElp_MouseLeave(sender As Object, e As EventArgs) Handles lblHelp.MouseLeave
-        lblHelp.BackColor = Color.FromArgb(70, 80, 70)
+    Private Sub help_btn_MouseLeave(sender As Object, e As EventArgs) Handles help_btn.MouseLeave
+        help_btn.BackColor = Color.Transparent
     End Sub
 
-    Private Sub lblOtherProducts_MouseEnter(sender As Object, e As EventArgs) Handles lblOtherProducts.MouseEnter
-        lblOtherProducts.BackColor = Color.FromArgb(70, 60, 70)
+    Private Sub help1_btn_MouseEnter(sender As Object, e As EventArgs) Handles help1_btn.MouseEnter
+        help1_btn.BackColor = Color.White
     End Sub
-    Private Sub lblOtherProducts_MouseLeave(sender As Object, e As EventArgs) Handles lblOtherProducts.MouseLeave
-        lblOtherProducts.BackColor = Color.FromArgb(80, 70, 80)
+
+    Private Sub help1_btn_MouseLeave(sender As Object, e As EventArgs) Handles help1_btn.MouseLeave
+        help1_btn.BackColor = Color.Transparent
+    End Sub
+
+    Private Sub other_btn_MouseEnter(sender As Object, e As EventArgs) Handles other_btn.MouseEnter
+        other_btn.BackColor = Color.White
+    End Sub
+    Private Sub other_btn_MouseLeave(sender As Object, e As EventArgs) Handles other_btn.MouseLeave
+        other_btn.BackColor = Color.Transparent
     End Sub
 
     Private Sub FrmVideoList_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged
-
-        ImageListView1.Width = Me.Width
-        ImageListView1.Left = 0
-        ImageListView1.Height = Me.Height - 150
-        TableLayoutPanel2.Left = Me.Width - 90
-        lblTitle.Left = (Me.Width / 2) - (lblTitle.Width / 2)
         If minimized = False Then
-            Dim itemW As Double = Me.Width / 4.28
+            Dim itemW As Double = Me.Width / 4.3
             ImageListView1.ThumbnailSize = New Size(itemW, itemW)
         End If
         ImageListView1.Refresh()
@@ -172,7 +172,12 @@ Public Class FrmVideoList
         initilizeClose()
     End Sub
 
-    Private Sub lblHelp_Click(sender As Object, e As EventArgs) Handles lblHelp.Click
+    Private Sub help1_btn_Click(sender As Object, e As EventArgs) Handles help1_btn.Click
+        Dim tfrm As New FrmHelp
+        tfrm.ShowDialog()
+    End Sub
+
+    Private Sub help_btn_Click(sender As Object, e As EventArgs) Handles help_btn.Click
         Dim proc As ProcessStartInfo = New ProcessStartInfo
         proc.UseShellExecute = True
         proc.FileName = "player\book\play808.exe"
@@ -182,7 +187,7 @@ Public Class FrmVideoList
         End Using
     End Sub
 
-    Private Sub lblOtherProducts_Click(sender As Object, e As EventArgs) Handles lblOtherProducts.Click
+    Private Sub other_btn_Click(sender As Object, e As EventArgs) Handles other_btn.Click
         Dim proc As ProcessStartInfo = New ProcessStartInfo
         proc.UseShellExecute = True
         proc.FileName = "player\book\play808.exe"
@@ -191,4 +196,5 @@ Public Class FrmVideoList
             exeProcess.WaitForExit()
         End Using
     End Sub
+
 End Class

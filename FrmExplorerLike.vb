@@ -75,8 +75,6 @@ Public Class frmExplorerLike
         Me.mnuViewSmallIcons = New System.Windows.Forms.MenuItem()
         Me.mnuViewList = New System.Windows.Forms.MenuItem()
         Me.mnuViewDetails = New System.Windows.Forms.MenuItem()
-        Me.cmdExit = New System.Windows.Forms.Button()
-        Me.BtnOpenVideos = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.ExpTree1 = New ExpTreeLib.ExpTree()
         Me.Splitter1 = New System.Windows.Forms.Splitter()
@@ -86,6 +84,8 @@ Public Class frmExplorerLike
         Me.ColumnHeaderSize = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeaderType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmdCTest = New System.Windows.Forms.Button()
+        Me.BtnOpenVideos = New System.Windows.Forms.Button()
+        Me.cmdExit = New System.Windows.Forms.Button()
         Me.BtnBackFolder = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -93,81 +93,49 @@ Public Class frmExplorerLike
         '
         'MainMenu1
         '
-        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem1, Me.MenuItem2})
-        '
-        'MenuItem1
-        '
-        Me.MenuItem1.Index = 0
-        Me.MenuItem1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuExit})
-        Me.MenuItem1.Text = "&منو"
-        '
-        'mnuExit
-        '
-        Me.mnuExit.Index = 0
-        Me.mnuExit.Text = "خروج"
+        Me.MainMenu1.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.MenuItem2})
         '
         'MenuItem2
         '
-        Me.MenuItem2.Index = 1
+        Me.MenuItem2.Index = 0
         Me.MenuItem2.MenuItems.AddRange(New System.Windows.Forms.MenuItem() {Me.mnuViewLargeIcons, Me.mnuViewSmallIcons, Me.mnuViewList, Me.mnuViewDetails})
-        Me.MenuItem2.Text = "&دیداری"
+        Me.MenuItem2.Text = "&View"
         '
         'mnuViewLargeIcons
         '
         Me.mnuViewLargeIcons.Index = 0
-        Me.mnuViewLargeIcons.Text = "آیکون بزرگ"
+        Me.mnuViewLargeIcons.Text = "Large Icon"
         '
         'mnuViewSmallIcons
         '
         Me.mnuViewSmallIcons.Index = 1
-        Me.mnuViewSmallIcons.Text = "آیکون کوچک"
+        Me.mnuViewSmallIcons.Text = "Small Icon"
         '
         'mnuViewList
         '
         Me.mnuViewList.Index = 2
-        Me.mnuViewList.Text = "لیست"
+        Me.mnuViewList.Text = "List"
         '
         'mnuViewDetails
         '
         Me.mnuViewDetails.Index = 3
-        Me.mnuViewDetails.Text = "جزئیات"
-        '
-        'cmdExit
-        '
-        Me.cmdExit.Dock = System.Windows.Forms.DockStyle.Left
-        Me.cmdExit.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdExit.Location = New System.Drawing.Point(3, 3)
-        Me.cmdExit.Name = "cmdExit"
-        Me.cmdExit.Size = New System.Drawing.Size(200, 46)
-        Me.cmdExit.TabIndex = 3
-        Me.cmdExit.Text = "خروج"
-        '
-        'BtnOpenVideos
-        '
-        Me.BtnOpenVideos.BackColor = System.Drawing.SystemColors.ControlLight
-        Me.BtnOpenVideos.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtnOpenVideos.Font = New System.Drawing.Font("Tahoma", 9.75!)
-        Me.BtnOpenVideos.Location = New System.Drawing.Point(702, 3)
-        Me.BtnOpenVideos.Name = "BtnOpenVideos"
-        Me.BtnOpenVideos.Size = New System.Drawing.Size(200, 46)
-        Me.BtnOpenVideos.TabIndex = 4
-        Me.BtnOpenVideos.Text = "ویدیوها"
-        Me.BtnOpenVideos.UseVisualStyleBackColor = False
+        Me.mnuViewDetails.Text = "Details"
         '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.BtnOpenVideos, 1, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.cmdExit, 0, 0)
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177.0!))
+        Me.TableLayoutPanel1.Controls.Add(Me.BtnOpenVideos, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.cmdExit, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 442)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 379)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(8)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(905, 52)
+        Me.TableLayoutPanel1.Size = New System.Drawing.Size(905, 43)
         Me.TableLayoutPanel1.TabIndex = 5
         '
         'ExpTree1
@@ -208,12 +176,13 @@ Public Class frmExplorerLike
         'lv1
         '
         Me.lv1.Activation = System.Windows.Forms.ItemActivation.OneClick
+        Me.lv1.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.lv1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeaderName, Me.ColumnHeaderSize, Me.ColumnHeaderType})
-        Me.lv1.Location = New System.Drawing.Point(200, 28)
+        Me.lv1.Location = New System.Drawing.Point(193, 28)
         Me.lv1.MultiSelect = False
         Me.lv1.Name = "lv1"
-        Me.lv1.Size = New System.Drawing.Size(705, 348)
-        Me.lv1.TabIndex = 9
+        Me.lv1.Size = New System.Drawing.Size(712, 348)
+        Me.lv1.TabIndex = 0
         Me.lv1.UseCompatibleStateImageBehavior = False
         '
         'ColumnHeaderName
@@ -234,36 +203,76 @@ Public Class frmExplorerLike
         '
         'cmdCTest
         '
-        Me.cmdCTest.Font = New System.Drawing.Font("Tahoma", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdCTest.Font = New System.Drawing.Font("IRANSans", 9.0!)
         Me.cmdCTest.Location = New System.Drawing.Point(193, 0)
         Me.cmdCTest.Name = "cmdCTest"
-        Me.cmdCTest.Size = New System.Drawing.Size(158, 27)
+        Me.cmdCTest.Size = New System.Drawing.Size(103, 27)
         Me.cmdCTest.TabIndex = 7
         Me.cmdCTest.Text = "پوشه اصلی"
+        Me.cmdCTest.UseCompatibleTextRendering = True
+        '
+        'BtnOpenVideos
+        '
+        Me.BtnOpenVideos.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.BtnOpenVideos.BackColor = System.Drawing.Color.White
+        Me.BtnOpenVideos.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.BtnOpenVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOpenVideos.Font = New System.Drawing.Font("IRANSans", 9.75!)
+        Me.BtnOpenVideos.Image = Global.ExpTree_Demo.My.Resources.Resources.arrow_left
+        Me.BtnOpenVideos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOpenVideos.Location = New System.Drawing.Point(3, 4)
+        Me.BtnOpenVideos.Name = "BtnOpenVideos"
+        Me.BtnOpenVideos.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.BtnOpenVideos.Size = New System.Drawing.Size(115, 34)
+        Me.BtnOpenVideos.TabIndex = 4
+        Me.BtnOpenVideos.Text = "ویدیوها"
+        Me.BtnOpenVideos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOpenVideos.UseVisualStyleBackColor = False
+        Me.BtnOpenVideos.UseCompatibleTextRendering = True
+        '
+        'cmdExit
+        '
+        Me.cmdExit.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.cmdExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.cmdExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.cmdExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdExit.Font = New System.Drawing.Font("IRANSans", 9.75!)
+        Me.cmdExit.ForeColor = System.Drawing.Color.White
+        Me.cmdExit.Image = Global.ExpTree_Demo.My.Resources.Resources.logout
+        Me.cmdExit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmdExit.Location = New System.Drawing.Point(801, 3)
+        Me.cmdExit.Name = "cmdExit"
+        Me.cmdExit.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
+        Me.cmdExit.Size = New System.Drawing.Size(101, 37)
+        Me.cmdExit.TabIndex = 3
+        Me.cmdExit.Text = "خروج"
+        Me.cmdExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdExit.UseVisualStyleBackColor = False
+        Me.cmdExit.UseCompatibleTextRendering = True
         '
         'BtnBackFolder
         '
-        Me.BtnBackFolder.Font = New System.Drawing.Font("Tahoma", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnBackFolder.Location = New System.Drawing.Point(736, 0)
+        Me.BtnBackFolder.Font = New System.Drawing.Font("IRANSans", 9.0!)
+        Me.BtnBackFolder.Location = New System.Drawing.Point(297, 0)
         Me.BtnBackFolder.Name = "BtnBackFolder"
-        Me.BtnBackFolder.Size = New System.Drawing.Size(169, 27)
+        Me.BtnBackFolder.Size = New System.Drawing.Size(89, 27)
         Me.BtnBackFolder.TabIndex = 8
         Me.BtnBackFolder.Text = "بازگشت"
         Me.BtnBackFolder.UseVisualStyleBackColor = True
+        Me.BtnBackFolder.UseCompatibleTextRendering = True
         '
         'frmExplorerLike
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
         Me.BackColor = System.Drawing.SystemColors.Control
-        Me.ClientSize = New System.Drawing.Size(905, 494)
+        Me.ClientSize = New System.Drawing.Size(905, 422)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.Panel1)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Menu = Me.MainMenu1
         Me.Name = "frmExplorerLike"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "موسسه آموزشی مهندسی ۸۰۸"
+        Me.Text = "808 File Viewer"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
@@ -339,10 +348,11 @@ Public Class frmExplorerLike
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         ExpTree1.Visible = False
-        Me.Width = Screen.PrimaryScreen.Bounds.Width - 100
-        Me.Height = Screen.PrimaryScreen.Bounds.Height - 100
-        Me.Left = (Screen.PrimaryScreen.WorkingArea.Width - Me.Width) / 2
-        Me.Top = (Screen.PrimaryScreen.WorkingArea.Height - Me.Height) / 2
+        Dim iran As Font = CustomFont.GetInstance(10, FontStyle.Regular)
+        cmdCTest.Font = CustomFont.GetInstance(9, FontStyle.Regular)
+        BtnBackFolder.Font = CustomFont.GetInstance(9, FontStyle.Regular)
+        cmdExit.Font = iran
+        BtnOpenVideos.Font = iran
 
         Me.Activate()
 
@@ -351,7 +361,6 @@ Public Class frmExplorerLike
             ExpTree1.RootItem = cDir
         End If
         FrmLoadingObj.Close()
-
     End Sub
 #End Region
 
@@ -573,10 +582,11 @@ Public Class frmExplorerLike
         lv1.Left = 0
         lv1.Height = Panel1.Height - 8
         lv1.Width = Panel1.Width
-        BtnBackFolder.Left = Me.Width - BtnBackFolder.Width - 16
+        'BtnBackFolder.Left = Me.Width - BtnBackFolder.Width - 16
         TableLayoutPanel1.Top = Me.Height - 112
         TableLayoutPanel1.Width = Me.Width - 16
         cmdCTest.Left = 0
+        BtnBackFolder.Left = 104
     End Sub
 
     Private Sub frmExplorerLike_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing

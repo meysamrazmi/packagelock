@@ -1,24 +1,43 @@
-﻿Imports System.Text
-Imports System.IO
+﻿Imports System.IO
+Imports System.Text
 Imports System.Threading
 Imports System.ComponentModel
+Imports System.Drawing.Text
 
 Public Class FrmLock
+    'for moving the form lock windows form
+    Dim drag As Boolean
+    Dim mousex As Integer
+    Dim mousey As Integer
+    Private Sub FrmVideoList_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown
+        drag = True
+        mousex = Windows.Forms.Cursor.Position.X - Me.Left
+        mousey = Windows.Forms.Cursor.Position.Y - Me.Top
+    End Sub
 
+    Private Sub FrmVideoList_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove
+        If drag Then
+            Me.Top = Windows.Forms.Cursor.Position.Y - mousey
+            Me.Left = Windows.Forms.Cursor.Position.X - mousex
+        End If
+    End Sub
+
+    Private Sub FrmVideoList_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseUp
+        drag = False
+    End Sub
 
     Private Sub FrmLock_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        txtName.Font = CustomFont.GetInstance(8.25, FontStyle.Regular)
+        lblStatus.Font = CustomFont.GetInstance(10, FontStyle.Regular)
+
         FrmsOpenCount += 1
-
-
 
         'debug
         ParseCommandLineArgs()
         If Path.GetFileName(Application.ExecutablePath) <> "Commander32.exe" Then
-            'Debug
+            MsgBox("خطایی در رابطه با مکان قرارگیری فایل ها وجود دارد." & vbNewLine & "لطفا فایل ها را به حالت اولیه برگردانید و سپس autorun.exe را اجرا کنید", MsgBoxStyle.Exclamation, "خطا")
             Application.Exit()
-
         End If
-
 
         LocalKey = ToMD5(LocalKey + Environment.MachineName + Environment.UserName)
         LocalIV = ToMD5(LocalIV + Environment.MachineName + Environment.UserName)
@@ -28,7 +47,6 @@ Public Class FrmLock
         serverURI = SettingItems(0)
         PackageCode = SettingItems(2).ToLower.Trim
         CheckumBin = SettingItems(4).ToLower.Trim
-
 
         Dim tempRegVal As String = get_setting("version", "").ToString
 
@@ -46,6 +64,7 @@ Public Class FrmLock
 
         Dim cx As String = folderCheksum(binDir)
         If cx <> CheckumBin Then
+            MsgBox("خطایی در رابطه با مکان قرارگیری فایل ها در پوشه bin وجود دارد." & vbNewLine & "لطفا فایل ها را به حالت اولیه برگردانید.", MsgBoxStyle.Exclamation, "خطا")
             Application.Exit()
         End If
 
@@ -69,7 +88,6 @@ Public Class FrmLock
             Application.Restart()
         End If
 
-
         If tempRegVal <> "" Then
             Dim x As New FrmVideoList
             x.Show()
@@ -83,7 +101,6 @@ Public Class FrmLock
             While threadCheckPUID.IsAlive = True
                 Thread.Sleep(500)
             End While
-
         Else
             Me.Activate()
             isLogoWorkComplete = True
@@ -93,12 +110,24 @@ Public Class FrmLock
 
         End If
 
-
-
         If My.Computer.Network.IsAvailable And tempRegVal <> "" Then
             Dim syncUser As Thread = New Thread(AddressOf syncOfflineUser)
             syncUser.SetApartmentState(ApartmentState.MTA)
             syncUser.Start()
+        End If
+
+        'loading textfield to prevent data lost at every starting
+        If get_setting("user_name", "") <> "" Then
+            txtName.Text = get_setting("user_name", "")
+            txtName.ForeColor = Color.Black
+        End If
+        If get_setting("user_phone", "") <> "" Then
+            txtPhone.Text = get_setting("user_phone", "")
+            txtPhone.ForeColor = Color.Black
+        End If
+        If get_setting("user_email", "") <> "" Then
+            txtEmail.Text = get_setting("user_email", "")
+            txtEmail.ForeColor = Color.Black
         End If
 
     End Sub
@@ -112,7 +141,7 @@ Public Class FrmLock
         Do While (isLogoWorkComplete = False)
             Threading.Thread.Sleep(200)
         Loop
-        Threading.Thread.Sleep(4000)
+        Threading.Thread.Sleep(3000)
         FrmLogoObj.Close()
     End Sub
 
@@ -127,6 +156,7 @@ Public Class FrmLock
         Next
 
         If inputName <> "9xx7(y)aso9E4236lX5wf8" Then
+            MsgBox("خطایی در رابطه با تنظیمات برنامه رخ داده است." & vbNewLine & "لطفا با پشتیبانی تماس حاصل فرمایید.", MsgBoxStyle.Exclamation, "خطا")
             Application.Exit()
         Else
             PHPConKey = Strings.Right(inputName, 6) & PHPConKey
@@ -156,9 +186,19 @@ Public Class FrmLock
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
+        If txtPhone.Text <> "09120000000" Then
+            set_setting("user_phone", txtPhone.Text)
+        End If
+        If txtName.Text <> "میثم رزمی" Then
+            set_setting("user_name", txtName.Text)
+        End If
+        If txtEmail.Text <> "sample@gmail.com" Then
+            set_setting("user_email", txtEmail.Text)
+        End If
+
         lblStatus.Visible = True
         lblStatus.Text = ""
-        If TxtPass.Text.Length < 4 Or txtPhone.Text = "" Or txtName.Text = "" Or txtEmail.Text = "" Then
+        If TxtPass.Text.Length < 2 Or txtPhone.Text = "" Or txtPhone.Text = "09120000000" Or txtName.Text = "" Or txtName.Text = "میثم رزمی" Or txtEmail.Text = "" Or txtEmail.Text = "sample@gmail.com" Then
             lblStatus.Text = "فیلدها را به درستی پر کنید"
             lblStatus.ForeColor = Color.Red
             Exit Sub
@@ -169,16 +209,14 @@ Public Class FrmLock
             Exit Sub
         End If
         If txtPhone.Text.Length <> 11 Then
-            MsgBox("شماره تماس اشتباه است" & vbNewLine & "(نمونه صحیح) 9120001111", MsgBoxStyle.Exclamation, "خطا")
+            MsgBox("شماره تلفن اشتباه است. شماره باید 11 رقم باشد مانند:" & vbNewLine & "09123456789", MsgBoxStyle.Exclamation, "خطا")
             Exit Sub
         End If
 
-
         Try
-
             If My.Computer.Network.IsAvailable Then
                 If Strings.Left(TxtPass.Text.Trim.ToLower, PackageCode.Length) <> PackageCode Then
-                    lblStatus.Text = "سریال نامعتبر!"
+                    lblStatus.Text = "سریال برای پکیج دیگری می باشد و بر روی این پکیج فعال نیست."
                     lblStatus.ForeColor = Color.Red
                 Else
 
@@ -204,6 +242,7 @@ Public Class FrmLock
 
                                 set_setting("version", PUID)
                                 set_setting("serial", TxtPass.Text.Trim.ToLower)
+                                set_setting("package", PackageCode)
                                 set_setting("user_name", txtName.Text)
                                 set_setting("user_phone", txtPhone.Text)
                                 set_setting("user_email", txtEmail.Text)
@@ -212,7 +251,7 @@ Public Class FrmLock
                                 x.Show()
                                 Me.Hide()
                             Case 2
-                                lblStatus.Text = "سریال باطل شده"
+                                lblStatus.Text = "تعداد دفعات استفاده از سریال مجاز نیست."
                                 lblStatus.ForeColor = Color.Red
                             Case 3
                                 lblStatus.Text = "خطای سرور, مجددا سعی کنید"
@@ -234,16 +273,12 @@ Public Class FrmLock
                 Exit Sub
             End If
 
-        Catch
+        Catch ee As Exception
             lblStatus.Text = "خطای نامعلوم"
+            MsgBox("خطای نامعلوم" & vbNewLine & ee.Message, MsgBoxStyle.Critical, "خطا")
             lblStatus.ForeColor = Color.Black
         End Try
-
-
     End Sub
-
-
-
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
         Dim webAddress As String = "http://civil808.com/page/about"
@@ -255,6 +290,11 @@ Public Class FrmLock
         Process.Start(webAddress)
     End Sub
 
+    Private Sub BtnHelp_Click(sender As Object, e As EventArgs) Handles BtnHelp.Click
+        Dim tfrm As New FrmHelp
+        tfrm.ShowDialog()
+    End Sub
+
     Private Sub PictureBox5_Click(sender As Object, e As EventArgs) Handles PictureBox5.Click
         Me.Close()
     End Sub
@@ -264,13 +304,21 @@ Public Class FrmLock
     End Sub
 
     Private Sub PictureBox4_Click(sender As Object, e As EventArgs) Handles PictureBox4.Click
-        'debug
-        If My.Computer.Network.IsAvailable Then
-            MsgBox("لطفا از فعالساز آنلاین استفاده کنید", MsgBoxStyle.Information, "راهنما")
-            Exit Sub
+        If txtPhone.Text <> "09120000000" Or txtPhone.Text <> "" Then
+            set_setting("user_phone", txtPhone.Text)
         End If
-        If txtEmail.Text.Length < 3 Or txtName.Text.Length < 3 Or txtPhone.Text.Length < 3 Then
-            MsgBox("لطفا فیلدهای (نام - ایمیل - شماره تماس) را پر کنید", MsgBoxStyle.Exclamation, "خطا")
+        If txtName.Text <> "میثم رزمی" Or txtName.Text <> "" Then
+            set_setting("user_name", txtName.Text)
+        End If
+        If txtEmail.Text <> "sample@gmail.com" Or txtEmail.Text <> "" Then
+            set_setting("user_email", txtEmail.Text)
+        End If
+
+        If My.Computer.Network.IsAvailable Then
+            MsgBox("برای جلوگیری از بروز خطا در استفاده های بعدی در صورت اتصال به اینترنت لطفا از فعال سازی آنلاین استفاده کنید.", MsgBoxStyle.Information, "راهنما")
+        End If
+        If txtPhone.Text = "" Or txtPhone.Text = "09120000000" Or txtName.Text = "" Or txtName.Text = "میثم رزمی" Or txtEmail.Text = "" Or txtEmail.Text = "sample@gmail.com" Then
+            MsgBox("لطفا فیلدهای (نام - ایمیل - شماره تلفن) را پر کنید. حداقل 3 حرف باید وارد شود.", MsgBoxStyle.Exclamation, "خطا")
             Exit Sub
         End If
         If IsEmail(txtEmail.Text) = False Then
@@ -278,7 +326,7 @@ Public Class FrmLock
             Exit Sub
         End If
         If txtPhone.Text.Length <> 11 Then
-            MsgBox("شماره تماس اشتباه. نمونه صحیح:" & vbNewLine & "9120001111", MsgBoxStyle.Exclamation, "خطا")
+            MsgBox("شماره تلفن اشتباه است. شماره باید 11 رقم باشد مانند:" & vbNewLine & "09120001111", MsgBoxStyle.Exclamation, "خطا")
             Exit Sub
         End If
 
@@ -288,21 +336,15 @@ Public Class FrmLock
         set_setting("user_name", txtName.Text)
         set_setting("user_phone", txtPhone.Text)
         set_setting("user_email", txtEmail.Text)
+        set_setting("package", PackageCode)
 
         If get_setting("version", "") = PUID Then
             Dim x As New FrmVideoList
             x.Show()
             Me.Hide()
-        Else
-            lblStatus.Text = "خطا!"
-            lblStatus.ForeColor = Color.Red
-            lblStatus.Visible = True
         End If
 
     End Sub
-
-
-
 
     Private Sub txtPhone_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPhone.KeyPress
         If Not Char.IsNumber(e.KeyChar) AndAlso Not Char.IsControl(e.KeyChar) Then e.KeyChar = ""
@@ -316,16 +358,11 @@ Public Class FrmLock
                     If Asc(e.KeyChar) < 48 Or Asc(e.KeyChar) > 57 Then
                         If ac.IndexOf(e.KeyChar) = -1 Then
                             e.Handled = True
-
                         Else
-
                             If txtEmail.Text.Contains("@") And e.KeyChar = "@" Then
                                 e.Handled = True
                             End If
-
                         End If
-
-
                     End If
                 End If
             End If
@@ -334,5 +371,49 @@ Public Class FrmLock
 
     End Sub
 
+    'handling textboxes placeholders
+    Private Sub txtName_GotFocus(sender As Object, e As EventArgs) Handles txtName.GotFocus
+        If txtName.Text = "میثم رزمی" Then
+            txtName.Text = ""
+            txtName.ForeColor = Color.Black
+            Dim iran As Font = CustomFont.GetInstance(10, FontStyle.Regular)
+            txtName.Font = iran
+        End If
+    End Sub
+
+    Private Sub txtName_LostFocus(sender As Object, e As EventArgs) Handles txtName.LostFocus
+        If txtName.Text = "" Then
+            txtName.Text = "میثم رزمی"
+            txtName.ForeColor = Color.Silver
+        End If
+    End Sub
+
+    Private Sub txtPhone_GotFocus(sender As Object, e As EventArgs) Handles txtPhone.GotFocus
+        If txtPhone.Text = "09120000000" Then
+            txtPhone.Text = ""
+            txtPhone.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub txtPhone_LostFocus(sender As Object, e As EventArgs) Handles txtPhone.LostFocus
+        If txtPhone.Text = "" Then
+            txtPhone.Text = "09120000000"
+            txtPhone.ForeColor = Color.Silver
+        End If
+    End Sub
+
+    Private Sub txtEmail_GotFocus(sender As Object, e As EventArgs) Handles txtEmail.GotFocus
+        If txtEmail.Text = "sample@gmail.com" Then
+            txtEmail.Text = ""
+            txtEmail.ForeColor = Color.Black
+        End If
+    End Sub
+
+    Private Sub txtEmail_LostFocus(sender As Object, e As EventArgs) Handles txtEmail.LostFocus
+        If txtEmail.Text = "" Then
+            txtEmail.Text = "sample@gmail.com"
+            txtEmail.ForeColor = Color.Silver
+        End If
+    End Sub
 
 End Class

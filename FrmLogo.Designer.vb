@@ -22,38 +22,87 @@ Partial Class FrmLogo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmLogo))
         Me.LblName = New System.Windows.Forms.Label()
+        Me.LblSerial = New System.Windows.Forms.Label()
+        Me.LblPackage = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'LblName
         '
-        Me.LblName.BackColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer), CType(CType(205, Byte), Integer))
-        Me.LblName.Font = New System.Drawing.Font("Tahoma", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblName.ForeColor = System.Drawing.Color.Teal
-        Me.LblName.Location = New System.Drawing.Point(178, 151)
+        Me.LblName.BackColor = System.Drawing.Color.Transparent
+        Me.LblName.Font = New System.Drawing.Font("Tahoma", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblName.ForeColor = System.Drawing.Color.Indigo
+        Me.LblName.Location = New System.Drawing.Point(29, 185)
         Me.LblName.Name = "LblName"
         Me.LblName.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
         Me.LblName.RightToLeft = System.Windows.Forms.RightToLeft.Yes
-        Me.LblName.Size = New System.Drawing.Size(223, 46)
+        Me.LblName.Size = New System.Drawing.Size(211, 32)
         Me.LblName.TabIndex = 0
-        Me.LblName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LblName.UseCompatibleTextRendering = True
+        '
+        'LblSerial
+        '
+        Me.LblSerial.BackColor = System.Drawing.Color.Transparent
+        Me.LblSerial.Font = New System.Drawing.Font("Tahoma", 16.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblSerial.ForeColor = System.Drawing.Color.Indigo
+        Me.LblSerial.Location = New System.Drawing.Point(29, 227)
+        Me.LblSerial.Name = "LblSerial"
+        Me.LblSerial.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
+        Me.LblSerial.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.LblSerial.Size = New System.Drawing.Size(211, 34)
+        Me.LblSerial.TabIndex = 2
+        Me.LblSerial.UseCompatibleTextRendering = True
+        '
+        'LblPackage
+        '
+        Me.LblPackage.BackColor = System.Drawing.Color.Transparent
+        Me.LblPackage.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPackage.ForeColor = System.Drawing.Color.Indigo
+        Me.LblPackage.Location = New System.Drawing.Point(29, 263)
+        Me.LblPackage.Name = "LblPackage"
+        Me.LblPackage.Padding = New System.Windows.Forms.Padding(0, 0, 0, 5)
+        Me.LblPackage.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.LblPackage.Size = New System.Drawing.Size(212, 34)
+        Me.LblPackage.TabIndex = 3
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
+        Me.Label1.Location = New System.Drawing.Point(7, 304)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(59, 13)
+        Me.Label1.TabIndex = 30
+        Me.Label1.Text = "version 2.0"
         '
         'FrmLogo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackgroundImage = Global.ExpTree_Demo.My.Resources.Resources.LogoFrm
-        Me.ClientSize = New System.Drawing.Size(698, 213)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.ClientSize = New System.Drawing.Size(504, 323)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.LblPackage)
+        Me.Controls.Add(Me.LblSerial)
         Me.Controls.Add(Me.LblName)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmLogo"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FrmLogo"
         Me.TopMost = True
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 
     Friend WithEvents LblName As Label
+    Friend WithEvents LblSerial As Label
+    Friend WithEvents LblPackage As Label
+    Friend WithEvents Label1 As Label
 End Class
