@@ -35,7 +35,9 @@ Partial Class FrmLock
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.PictureBox6 = New System.Windows.Forms.PictureBox()
         Me.BtnHelp = New System.Windows.Forms.PictureBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.PackageTitle = New System.Windows.Forms.Label()
+        Me.lblversion = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -182,15 +184,40 @@ Partial Class FrmLock
         Me.BtnHelp.TabIndex = 28
         Me.BtnHelp.TabStop = False
         '
-        'Label1
+        'PackageTitle
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(4, 644)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 13)
-        Me.Label1.TabIndex = 29
-        Me.Label1.Text = "version 2.0"
+        Me.PackageTitle.BackColor = System.Drawing.Color.Transparent
+        Me.PackageTitle.Font = New System.Drawing.Font("IRANSans", 11.0!, System.Drawing.FontStyle.Bold)
+        Me.PackageTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer), CType(CType(33, Byte), Integer))
+        Me.PackageTitle.Location = New System.Drawing.Point(47, 157)
+        Me.PackageTitle.Name = "PackageTitle"
+        Me.PackageTitle.RightToLeft = System.Windows.Forms.RightToLeft.Yes
+        Me.PackageTitle.Size = New System.Drawing.Size(407, 75)
+        Me.PackageTitle.TabIndex = 30
+        Me.PackageTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.PackageTitle.UseCompatibleTextRendering = True
+        '
+        'lblversion
+        '
+        Me.lblversion.AutoSize = True
+        Me.lblversion.BackColor = System.Drawing.Color.Transparent
+        Me.lblversion.Font = New System.Drawing.Font("Tahoma", 8.25!)
+        Me.lblversion.Location = New System.Drawing.Point(51, 646)
+        Me.lblversion.Name = "lblversion"
+        Me.lblversion.Size = New System.Drawing.Size(23, 13)
+        Me.lblversion.TabIndex = 35
+        Me.lblversion.Text = "2.0"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!)
+        Me.Label11.Location = New System.Drawing.Point(3, 646)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(42, 13)
+        Me.Label11.TabIndex = 34
+        Me.Label11.Text = "version"
         '
         'FrmLock
         '
@@ -199,7 +226,9 @@ Partial Class FrmLock
         Me.BackgroundImage = Global.ExpTree_Demo.My.Resources.Resources.bg
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(504, 662)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblversion)
+        Me.Controls.Add(Me.Label11)
+        Me.Controls.Add(Me.PackageTitle)
         Me.Controls.Add(Me.BtnHelp)
         Me.Controls.Add(Me.PictureBox6)
         Me.Controls.Add(Me.PictureBox5)
@@ -242,5 +271,7 @@ Partial Class FrmLock
     Friend WithEvents PictureBox5 As PictureBox
     Friend WithEvents PictureBox6 As PictureBox
     Friend WithEvents BtnHelp As PictureBox
-    Friend WithEvents Label1 As Label
+    Friend WithEvents PackageTitle As Label
+    Friend WithEvents lblversion As Label
+    Friend WithEvents Label11 As Label
 End Class
