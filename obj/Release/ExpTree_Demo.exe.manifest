@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="ExpTree_Demo.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="ExpTree_Demo" version="3.0.6413.29452" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="ExpTree_Demo" version="3.0.6426.28915" language="neutral" processorArchitecture="msil" />
     <commandLine file="ExpTree_Demo.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExpTree_Demo.exe" size="3119512">
-      <assemblyIdentity name="ExpTree_Demo" version="3.0.6413.29452" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExpTree_Demo.exe" size="3130776">
+      <assemblyIdentity name="ExpTree_Demo" version="3.0.6426.28915" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>eOFyHtujx3sEDpE+AN8RNrvH1r1yYVWm550vXt/4TbU=</dsig:DigestValue>
+        <dsig:DigestValue>LGggfcqUL/tfiQpsjpG8NrUvdEOg8rqk47raNVHsvNo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

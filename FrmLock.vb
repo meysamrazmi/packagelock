@@ -47,8 +47,12 @@ Public Class FrmLock
         serverURI = SettingItems(0)
         PackageCode = SettingItems(2).ToLower.Trim
         CheckumBin = SettingItems(4).ToLower.Trim
-        PackageName = SettingItems(6).ToLower.Trim
-        DataVersion = SettingItems(8).ToLower.Trim
+        If SettingItems.Length > 6 Then
+            PackageName = SettingItems(6).Trim
+        End If
+        If SettingItems.Length > 8 Then
+            DataVersion = SettingItems(8).ToLower.Trim
+        End If
         PackageTitle.Text = PackageName
         AppVersion = lblversion.Text
         Me.Text = "808 Package Lock - " & PackageName
