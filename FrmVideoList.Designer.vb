@@ -28,14 +28,15 @@ Partial Class FrmVideoList
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmVideoList))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.open_explorer = New System.Windows.Forms.Button()
-        Me.help_btn = New System.Windows.Forms.Button()
         Me.help1_btn = New System.Windows.Forms.Button()
+        Me.help_btn = New System.Windows.Forms.Button()
         Me.other_btn = New System.Windows.Forms.Button()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.ImageListView1 = New Manina.Windows.Forms.ImageListView()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -58,7 +59,7 @@ Partial Class FrmVideoList
         Me.TableLayoutPanel1.Controls.Add(Me.help_btn, 2, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.other_btn, 3, 0)
         Me.TableLayoutPanel1.GrowStyle = System.Windows.Forms.TableLayoutPanelGrowStyle.AddColumns
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(1, 519)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(1, 619)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
@@ -84,9 +85,32 @@ Partial Class FrmVideoList
         Me.open_explorer.TabIndex = 33
         Me.open_explorer.Text = "سایر محتویات پکیج"
         Me.open_explorer.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.open_explorer.UseCompatibleTextRendering = True
         Me.open_explorer.UseMnemonic = False
         Me.open_explorer.UseVisualStyleBackColor = False
-        Me.open_explorer.UseCompatibleTextRendering = True
+        '
+        'help1_btn
+        '
+        Me.help1_btn.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.help1_btn.BackColor = System.Drawing.Color.Transparent
+        Me.help1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.help1_btn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.help1_btn.FlatAppearance.BorderSize = 0
+        Me.help1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.help1_btn.Font = New System.Drawing.Font("IRANSans", 10.0!)
+        Me.help1_btn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.help1_btn.Image = Global.ExpTree_Demo.My.Resources.Resources.help_circle_outline
+        Me.help1_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.help1_btn.Location = New System.Drawing.Point(613, 10)
+        Me.help1_btn.Margin = New System.Windows.Forms.Padding(3, 3, 14, 3)
+        Me.help1_btn.Name = "help1_btn"
+        Me.help1_btn.Size = New System.Drawing.Size(115, 35)
+        Me.help1_btn.TabIndex = 34
+        Me.help1_btn.Text = "راهنمای برنامه"
+        Me.help1_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.help1_btn.UseCompatibleTextRendering = True
+        Me.help1_btn.UseMnemonic = False
+        Me.help1_btn.UseVisualStyleBackColor = False
         '
         'help_btn
         '
@@ -107,32 +131,9 @@ Partial Class FrmVideoList
         Me.help_btn.TabIndex = 34
         Me.help_btn.Text = "راهنمای پکیج"
         Me.help_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.help_btn.UseCompatibleTextRendering = True
         Me.help_btn.UseMnemonic = False
         Me.help_btn.UseVisualStyleBackColor = False
-        Me.help_btn.UseCompatibleTextRendering = True
-        '
-        'help1_btn
-        '
-        Me.help1_btn.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.help1_btn.BackColor = System.Drawing.Color.Transparent
-        Me.help1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.help1_btn.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.help1_btn.FlatAppearance.BorderSize = 0
-        Me.help1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.help1_btn.Font = New System.Drawing.Font("IRANSans", 10.0!)
-        Me.help1_btn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.help1_btn.Image = Global.ExpTree_Demo.My.Resources.Resources.help_circle_outline
-        Me.help1_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.help1_btn.Location = New System.Drawing.Point(615, 10)
-        Me.help1_btn.Margin = New System.Windows.Forms.Padding(3, 3, 14, 3)
-        Me.help1_btn.Name = "help1_btn"
-        Me.help1_btn.Size = New System.Drawing.Size(115, 35)
-        Me.help1_btn.TabIndex = 34
-        Me.help1_btn.Text = "راهنمای برنامه"
-        Me.help1_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.help1_btn.UseMnemonic = False
-        Me.help1_btn.UseVisualStyleBackColor = False
-        Me.help1_btn.UseCompatibleTextRendering = True
         '
         'other_btn
         '
@@ -153,9 +154,9 @@ Partial Class FrmVideoList
         Me.other_btn.TabIndex = 35
         Me.other_btn.Text = "سایر محصولات"
         Me.other_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.other_btn.UseCompatibleTextRendering = True
         Me.other_btn.UseMnemonic = False
         Me.other_btn.UseVisualStyleBackColor = False
-        Me.other_btn.UseCompatibleTextRendering = True
         '
         'lblTitle
         '
@@ -166,7 +167,7 @@ Partial Class FrmVideoList
         Me.lblTitle.ForeColor = System.Drawing.Color.White
         Me.lblTitle.Location = New System.Drawing.Point(120, 17)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(233, 33)
+        Me.lblTitle.Size = New System.Drawing.Size(231, 37)
         Me.lblTitle.TabIndex = 24
         Me.lblTitle.Text = "موسسه مهندسی آموزشی ۸۰۸"
         Me.lblTitle.UseCompatibleTextRendering = True
@@ -214,28 +215,40 @@ Partial Class FrmVideoList
         Me.ImageListView1.BackColor = System.Drawing.Color.White
         Me.ImageListView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ImageListView1.CacheLimit = "40MB"
+        Me.ImageListView1.DefaultImage = CType(resources.GetObject("ImageListView1.DefaultImage"), System.Drawing.Image)
         Me.ImageListView1.ErrorImage = CType(resources.GetObject("ImageListView1.ErrorImage"), System.Drawing.Image)
         Me.ImageListView1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ImageListView1.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.ImageListView1.Location = New System.Drawing.Point(0, 64)
         Me.ImageListView1.Margin = New System.Windows.Forms.Padding(3, 3, 3, 0)
-        Me.ImageListView1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 56)
         Me.ImageListView1.Name = "ImageListView1"
-        Me.ImageListView1.Size = New System.Drawing.Size(1024, 512)
+        Me.ImageListView1.Padding = New System.Windows.Forms.Padding(0, 0, 0, 56)
+        Me.ImageListView1.Size = New System.Drawing.Size(1024, 556)
         Me.ImageListView1.TabIndex = 0
         Me.ImageListView1.Text = ""
         Me.ImageListView1.ThumbnailSize = New System.Drawing.Size(250, 250)
         '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.White
+        Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FlowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 620)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1024, 56)
+        Me.FlowLayoutPanel1.TabIndex = 30
+        '
         'FrmVideoList
         '
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(171, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(188, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(1024, 576)
+        Me.ClientSize = New System.Drawing.Size(1024, 676)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.ImageListView1)
         Me.Controls.Add(Me.lblTitle)
+        Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FrmVideoList"
@@ -259,4 +272,5 @@ Partial Class FrmVideoList
     Friend WithEvents help_btn As Button
     Friend WithEvents help1_btn As Button
     Friend WithEvents other_btn As Button
+    Friend WithEvents FlowLayoutPanel1 As FlowLayoutPanel
 End Class

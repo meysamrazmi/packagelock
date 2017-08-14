@@ -202,11 +202,11 @@ Partial Class FrmLock
         Me.lblversion.AutoSize = True
         Me.lblversion.BackColor = System.Drawing.Color.Transparent
         Me.lblversion.Font = New System.Drawing.Font("Tahoma", 8.25!)
-        Me.lblversion.Location = New System.Drawing.Point(51, 646)
+        Me.lblversion.Location = New System.Drawing.Point(46, 646)
         Me.lblversion.Name = "lblversion"
         Me.lblversion.Size = New System.Drawing.Size(23, 13)
         Me.lblversion.TabIndex = 35
-        Me.lblversion.Text = "2.0"
+        Me.lblversion.Text = "2.1"
         '
         'Label11
         '

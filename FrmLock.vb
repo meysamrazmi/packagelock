@@ -55,7 +55,7 @@ Public Class FrmLock
         End If
         PackageTitle.Text = PackageName
         AppVersion = lblversion.Text
-        Me.Text = "808 Package Lock - " & PackageName
+        Me.Text = PackageName & " - 808 Package Lock"
 
         Dim tempRegVal As String = get_setting("version", "").ToString
 
@@ -248,7 +248,7 @@ Public Class FrmLock
                         lblStatus.Text = "..."
                         Select Case CInt(result.response)
                             Case 1
-                                lblStatus.Text = "ورود موفق!"
+                                lblStatus.Text = "فعال سازی انجام شد!"
                                 lblStatus.ForeColor = Color.Green
 
                                 set_setting("version", PUID)
@@ -350,6 +350,8 @@ Public Class FrmLock
         set_setting("package", PackageCode)
 
         If get_setting("version", "") = PUID Then
+            lblStatus.Text = "فعال سازی آفلاین انجام شد!"
+            lblStatus.ForeColor = Color.Green
             Dim x As New FrmVideoList
             x.Show()
             Me.Hide()

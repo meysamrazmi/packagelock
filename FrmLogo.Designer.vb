@@ -26,7 +26,8 @@ Partial Class FrmLogo
         Me.LblName = New System.Windows.Forms.Label()
         Me.LblSerial = New System.Windows.Forms.Label()
         Me.LblPackage = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.lblversion = New System.Windows.Forms.Label()
+        Me.Label11 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'LblName
@@ -67,15 +68,27 @@ Partial Class FrmLogo
         Me.LblPackage.Size = New System.Drawing.Size(212, 34)
         Me.LblPackage.TabIndex = 3
         '
-        'Label1
+        'lblversion
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(7, 304)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(59, 13)
-        Me.Label1.TabIndex = 30
-        Me.Label1.Text = "version 2.0"
+        Me.lblversion.AutoSize = True
+        Me.lblversion.BackColor = System.Drawing.Color.Transparent
+        Me.lblversion.Font = New System.Drawing.Font("Tahoma", 8.25!)
+        Me.lblversion.Location = New System.Drawing.Point(47, 304)
+        Me.lblversion.Name = "lblversion"
+        Me.lblversion.Size = New System.Drawing.Size(23, 13)
+        Me.lblversion.TabIndex = 37
+        Me.lblversion.Text = "2.1"
+        '
+        'Label11
+        '
+        Me.Label11.AutoSize = True
+        Me.Label11.BackColor = System.Drawing.Color.Transparent
+        Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!)
+        Me.Label11.Location = New System.Drawing.Point(4, 304)
+        Me.Label11.Name = "Label11"
+        Me.Label11.Size = New System.Drawing.Size(42, 13)
+        Me.Label11.TabIndex = 36
+        Me.Label11.Text = "version"
         '
         'FrmLogo
         '
@@ -84,7 +97,8 @@ Partial Class FrmLogo
         Me.BackgroundImage = Global.ExpTree_Demo.My.Resources.Resources.LogoFrm
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
         Me.ClientSize = New System.Drawing.Size(504, 323)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.lblversion)
+        Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.LblPackage)
         Me.Controls.Add(Me.LblSerial)
         Me.Controls.Add(Me.LblName)
@@ -104,5 +118,6 @@ Partial Class FrmLogo
     Friend WithEvents LblName As Label
     Friend WithEvents LblSerial As Label
     Friend WithEvents LblPackage As Label
-    Friend WithEvents Label1 As Label
+    Friend WithEvents lblversion As Label
+    Friend WithEvents Label11 As Label
 End Class

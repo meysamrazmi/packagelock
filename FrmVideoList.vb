@@ -38,6 +38,8 @@ Public Class FrmVideoList
         help1_btn.Font = iran
         other_btn.Font = iran
 
+        Me.Text = PackageName & " - Video List"
+
         ImageListView1.SetRenderer(New ImageListViewRenderers.TilesRenderer) 'TilesRenderer
         Dim iniArray As New List(Of String())
         Dim files As String() = Directory.GetFiles(videoDetailsDir)
@@ -150,7 +152,7 @@ Public Class FrmVideoList
         If IsProcessRunning("play808") Then
             killProcess("play808")
         End If
-        Dim FileInfo As New FileInfo(Path.Combine(videoDir, ImageListView1.SelectedItems(0).VideoPath))
+        Dim FileInfo As New FileInfo(Directory.GetFiles(videoDir)(ImageListView1.SelectedItems(0).Index))
         Dim fileOpenerThread As Thread = New Thread(Sub() open808FileThread(FileInfo))
         fileOpenerThread.SetApartmentState(ApartmentState.MTA)
         fileOpenerThread.Priority = ThreadPriorityLevel.Highest

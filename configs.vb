@@ -25,7 +25,7 @@ Module configs
 
     Public PackageCode As String = ""
     Public CheckumBin As String = ""
-    Public PackageName As String = ""
+    Public PackageName As String = "808"
     Public DataVersion As String = ""
     Public AppVersion As String = ""
 

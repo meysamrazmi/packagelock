@@ -354,6 +354,8 @@ Public Class frmExplorerLike
         cmdExit.Font = iran
         BtnOpenVideos.Font = iran
 
+        Me.Text = PackageName & " - All Files List"
+
         Me.Activate()
 
         Dim cDir As CShItem = GetCShItem(viewMainDir)

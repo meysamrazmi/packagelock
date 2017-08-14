@@ -67,6 +67,7 @@ Module functions
         GETPUID()
         If tempRegVal <> PUID Then
             set_setting("version", "")
+            MsgBox("تغییراتی در سیستم شما بوجود آمده است و پکیج غیر فعال شده است." & vbNewLine & "اگر خطایی رخ داده است می توانید دوباره فعال سازی را انجام دهید و یا اینکه یا پشتیبانی تماس بگیرید.", MsgBoxStyle.Exclamation, "خطا")
             Application.Restart()
         End If
     End Sub
@@ -112,14 +113,14 @@ Module functions
                 Exit Sub
             End If
 
-            If result.ranber = (ranber * 73) - 320 And CInt(result.response) = 1 Then
-                Exit Sub
+        If result.ranber = (ranber * 73) - 320 And CInt(result.response) = 1 Then
+            Exit Sub
 
-            ElseIf result.ranber = (ranber * 73) - 320 And (CInt(result.response) = 4 Or CInt(result.response) = 2) And get_setting("version", "") <> ""
-                set_setting("version", "")
-                Application.Restart()
-            End If
-
+        ElseIf result.ranber = (ranber * 73) - 320 And (CInt(result.response) = 4 Or CInt(result.response) = 2) And get_setting("version", "") <> ""
+            set_setting("version", "")
+            MsgBox("اطلاعات شما در دیتابیس وجود ندارد." & vbNewLine & "اگر خطایی رخ داده است می توانید دوباره فعال سازی را انجام دهید و یا اینکه یا پشتیبانی تماس بگیرید.", MsgBoxStyle.Exclamation, "خطا")
+            Application.Restart()
+        End If
     End Sub
 
 
@@ -292,7 +293,7 @@ Module functions
             End Using
             File.Delete(filePath)
         Catch ee As Exception
-            MsgBox("خطا حین باز کردن فایل" & vbNewLine & ee.Message, MsgBoxStyle.Critical, "")
+            MsgBox("خطا حین باز کردن فایل" & vbNewLine & ee.Message, MsgBoxStyle.Critical, "خطا")
         End Try
 
     End Sub
