@@ -118,11 +118,8 @@ C:\Users\user6\Desktop\package\source\ghadim v1.0\obj\Release\Saze808Lock.vbproj
 C:\Users\user6\Desktop\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.exe.manifest
 C:\Users\user6\Desktop\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.application
 C:\Users\user6\Desktop\package\source\ghadim v1.0\obj\Release\Saze808Lock.vbprojResolveAssemblyReference.cache
-C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ExpTree_Demo.exe.config
-C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.exe
-C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.xml
-C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.pdb
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\Resources\IRANSans.ttf
+C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ExpTree_Demo.exe.config
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ExpTree_Demo.exe.manifest
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ExpTree_Demo.application
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ExpTree_Demo.exe
@@ -131,7 +128,6 @@ C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ExpTree_Demo.xml
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ExpTreeLib.dll
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\ImageListView.dll
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\bin\tr\ImageListView.resources.dll
-C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\Saze808Lock.vbprojResolveAssemblyReference.cache
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.FrmHelp.resources
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.FrmLogo.resources
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.FrmOfflineRegister.resources
@@ -143,3 +139,10 @@ C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\Saze808Lock.vbproj.GenerateResource.Cache
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.exe.manifest
 C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.application
+C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.exe
+C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.xml
+C:\Users\user6\Desktop\civil\package\source\ghadim v1.0\obj\Release\ExpTree_Demo.pdb
+C:\Users\user6\Desktop\civil\package\source\v2.0\bin\ExpTree_Demo.exe.config
+C:\Users\user6\Desktop\civil\package\source\v2.0\obj\Release\ExpTree_Demo.exe
+C:\Users\user6\Desktop\civil\package\source\v2.0\obj\Release\ExpTree_Demo.xml
+C:\Users\user6\Desktop\civil\package\source\v2.0\obj\Release\ExpTree_Demo.pdb

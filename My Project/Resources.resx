@@ -133,9 +133,6 @@
   <data name="IRANSans" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\IRANSans.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="loding" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\loding.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\back.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -177,8 +174,5 @@
   </data>
   <data name="iran" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iran.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="def" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\def.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -47,11 +47,6 @@ ExpTree_Demo
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
-<member name="P:ExpTree_Demo.My.Resources.Resources.def">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member>
 <member name="P:ExpTree_Demo.My.Resources.Resources.folder_open">
 <summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
@@ -75,11 +70,6 @@ ExpTree_Demo
 <member name="P:ExpTree_Demo.My.Resources.Resources.IRANSans">
 <summary>
   Looks up a localized resource of type System.Byte[].
-</summary>
-</member>
-<member name="P:ExpTree_Demo.My.Resources.Resources.loding">
-<summary>
-  Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
 <member name="P:ExpTree_Demo.My.Resources.Resources.Logo_01">

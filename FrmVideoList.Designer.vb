@@ -214,7 +214,6 @@ Partial Class FrmVideoList
         Me.ImageListView1.BackColor = System.Drawing.Color.White
         Me.ImageListView1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.ImageListView1.CacheLimit = "40MB"
-        Me.ImageListView1.DefaultImage = Global.ExpTree_Demo.My.Resources.Resources.def
         Me.ImageListView1.ErrorImage = CType(resources.GetObject("ImageListView1.ErrorImage"), System.Drawing.Image)
         Me.ImageListView1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
         Me.ImageListView1.HeaderFont = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(162, Byte))

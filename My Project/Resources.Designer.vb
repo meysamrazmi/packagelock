@@ -113,16 +113,6 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property def() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("def", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
         Friend ReadOnly Property folder_open() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("folder_open", resourceCulture)
@@ -167,16 +157,6 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("IRANSans", resourceCulture)
                 Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        '''<summary>
-        '''  Looks up a localized resource of type System.Drawing.Bitmap.
-        '''</summary>
-        Friend ReadOnly Property loding() As System.Drawing.Bitmap
-            Get
-                Dim obj As Object = ResourceManager.GetObject("loding", resourceCulture)
-                Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
         

@@ -3,7 +3,7 @@
   <asmv1:assemblyIdentity name="ExpTree_Demo.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="ExpTree_Demo" version="3.0.6426.28915" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="ExpTree_Demo" version="3.0.6428.33211" language="neutral" processorArchitecture="msil" />
     <commandLine file="ExpTree_Demo.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExpTree_Demo.exe" size="3130776">
-      <assemblyIdentity name="ExpTree_Demo" version="3.0.6426.28915" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="ExpTree_Demo.exe" size="1684376">
+      <assemblyIdentity name="ExpTree_Demo" version="3.0.6428.33211" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>LGggfcqUL/tfiQpsjpG8NrUvdEOg8rqk47raNVHsvNo=</dsig:DigestValue>
+        <dsig:DigestValue>t8Q0LOHHyAlF9CuTu6gWhS/7SwkWyzejhoOjk4vtEls=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -96,6 +96,24 @@
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
       <dsig:DigestValue>saNR0vlsgETKWZT3OVGDO5R5iN8Mb9vztkjnu9tIGxU=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ExpTreeLib.dll" size="115712">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>n5LStO0XVomHK+Fdrx9e5FMaT9ZEGRjWtcuHxmUHSTs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="ImageListView.dll" size="146432">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ra+7Fi343QF79qTg23wFlUkSYn4ZPv8XYW6y0RgD7ck=</dsig:DigestValue>
     </hash>
   </file>
   <file name="My Project\Application.myapp" size="466">

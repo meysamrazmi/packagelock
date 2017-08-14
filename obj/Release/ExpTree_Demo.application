@@ -7,14 +7,14 @@
     <framework targetVersion="4.5.1" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="ExpTree_Demo.exe.manifest" size="5853">
+    <dependentAssembly dependencyType="install" codebase="ExpTree_Demo.exe.manifest" size="6644">
       <assemblyIdentity name="ExpTree_Demo.exe" version="1.0.0.0" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qOmwXkQ3FiXHWe4M1FH3nqrw7UWPZ5QsX3m/wvYNj4Q=</dsig:DigestValue>
+        <dsig:DigestValue>8Im+/X7E2alluyCuu/pWmz8HKDHintji+nSq51dBszE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

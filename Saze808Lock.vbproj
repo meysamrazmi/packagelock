@@ -231,7 +231,8 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\def.png" />
+    <Content Include="ExpTreeLib.dll" />
+    <Content Include="ImageListView.dll" />
     <None Include="Resources\iran.ttf" />
     <None Include="Resources\offline.png" />
     <EmbeddedResource Include="Resources\IRANSans.ttf">
@@ -241,7 +242,6 @@
     <None Include="Resources\back.png" />
     <None Include="Resources\arrow-left.png" />
     <None Include="Resources\logout.png" />
-    <None Include="Resources\loding.gif" />
     <None Include="Resources\webpack.png" />
     <None Include="Resources\help-circle-outline.png" />
     <None Include="Resources\folder-open.png" />

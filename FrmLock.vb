@@ -230,7 +230,8 @@ Public Class FrmLock
                 Else
 
                     Dim ranber As Long = GetRandom(10000, 100000)
-                    Dim hash As String = Web.HttpUtility.UrlEncodeUnicode(jsonSerilizer(1, PUID, TxtPass.Text.Trim.ToLower, PackageCode, ranber, txtName.Text, txtEmail.Text, txtPhone.Text, PackageName, DataVersion, AppVersion))
+                    Dim jsondata As String = jsonSerilizer(1, PUID, TxtPass.Text.Trim.ToLower, PackageCode, ranber, txtName.Text.Replace(vbCrLf, ""), txtEmail.Text, txtPhone.Text, PackageName, DataVersion, AppVersion)
+                    Dim hash As String = Web.HttpUtility.UrlEncodeUnicode(AES_encrypt(jsondata))
                     Dim response As String = HttpPostRequest(serverURI, "hash=" & hash.Trim)
 
                     Dim result As New jsonStructure
@@ -239,7 +240,7 @@ Public Class FrmLock
                     Else
                         lblStatus.Text = "خطای نامعلوم"
                         lblStatus.ForeColor = Color.Black
-                        MessageBox.Show(response)
+                        MsgBox("لطفا با پشتیبانی تماس بگیرید و تصویر این خطا را برای آنها بفرستید." & vbNewLine & jsondata, MsgBoxStyle.Critical, "خطای نامعلوم")
                         Return
                     End If
 

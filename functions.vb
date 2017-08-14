@@ -101,7 +101,8 @@ Module functions
     Public Sub syncOfflineUser()
         On Error Resume Next
         Dim ranber As Long = GetRandom(10000, 100000)
-        Dim hash As String = Web.HttpUtility.UrlEncodeUnicode(jsonSerilizer(1, get_setting("version", PUID), get_setting("serial", ""), PackageCode, ranber, get_setting("user_name", ""), get_setting("user_email", ""), get_setting("user_phone", ""), PackageName, DataVersion, AppVersion))
+        Dim jsondata As String = jsonSerilizer(1, get_setting("version", PUID), get_setting("serial", ""), PackageCode, ranber, get_setting("user_name", ""), get_setting("user_email", ""), get_setting("user_phone", ""), PackageName, DataVersion, AppVersion)
+        Dim hash As String = Web.HttpUtility.UrlEncodeUnicode(AES_encrypt(jsondata))
         Dim response As String = HttpPostRequest(serverURI, "hash=" & hash.Trim)
 
             Dim result As New jsonStructure
@@ -296,8 +297,12 @@ Module functions
 
     End Sub
 
+    'Public Function jsonSerilizer(ByVal action As Short, ByVal puid As String, ByVal serial As String, ByVal package As String, ByVal ranber As Long, Optional name As String = "", Optional email As String = "", Optional phone As String = "", Optional PackageName As String = "", Optional DataVersion As String = "", Optional version As String = "") As String
+    '    Return AES_encrypt("{""action"":" & action & ",""puid"":""" & puid & """,""serial"":""" & serial & """,""name"":""" & name & """,""email"":""" & email & """,""phone"":""" & phone & """,""package"":""" & package & """,""ranber"":" & ranber & ",""packagename"":""" & PackageName & """,""dataversion"":""" & DataVersion & """,""version"":""" & version & """}")
+    'End Function
+
     Public Function jsonSerilizer(ByVal action As Short, ByVal puid As String, ByVal serial As String, ByVal package As String, ByVal ranber As Long, Optional name As String = "", Optional email As String = "", Optional phone As String = "", Optional PackageName As String = "", Optional DataVersion As String = "", Optional version As String = "") As String
-        Return AES_encrypt("{""action"":" & action & ",""puid"":""" & puid & """,""serial"":""" & serial & """,""name"":""" & name & """,""email"":""" & email & """,""phone"":""" & phone & """,""package"":""" & package & """,""ranber"":" & ranber & ",""packagename"":""" & PackageName & """,""dataversion"":""" & DataVersion & """,""version"":""" & version & """}")
+        Return "{""action"":" & action & ",""puid"":""" & puid & """,""serial"":""" & serial & """,""name"":""" & name & """,""email"":""" & email & """,""phone"":""" & phone & """,""package"":""" & package & """,""ranber"":" & ranber & ",""packagename"":""" & PackageName & """,""dataversion"":""" & DataVersion & """,""version"":""" & version & """}"
     End Function
 
     Public Function importJson(ByVal input As String) As jsonStructure
