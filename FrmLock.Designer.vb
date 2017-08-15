@@ -63,7 +63,7 @@ Partial Class FrmLock
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox1.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox1.Location = New System.Drawing.Point(155, 436)
+        Me.PictureBox1.Location = New System.Drawing.Point(155, 437)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(193, 39)
         Me.PictureBox1.TabIndex = 11
@@ -73,7 +73,7 @@ Partial Class FrmLock
         '
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox2.Location = New System.Drawing.Point(349, 612)
+        Me.PictureBox2.Location = New System.Drawing.Point(349, 613)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(105, 22)
         Me.PictureBox2.TabIndex = 12
@@ -83,7 +83,7 @@ Partial Class FrmLock
         '
         Me.PictureBox3.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox3.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox3.Location = New System.Drawing.Point(47, 612)
+        Me.PictureBox3.Location = New System.Drawing.Point(47, 613)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(105, 22)
         Me.PictureBox3.TabIndex = 13
@@ -95,7 +95,7 @@ Partial Class FrmLock
         Me.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtName.Font = New System.Drawing.Font("IRANSans", 8.25!)
         Me.txtName.ForeColor = System.Drawing.Color.Silver
-        Me.txtName.Location = New System.Drawing.Point(127, 257)
+        Me.txtName.Location = New System.Drawing.Point(127, 264)
         Me.txtName.Multiline = True
         Me.txtName.Name = "txtName"
         Me.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes
@@ -109,7 +109,7 @@ Partial Class FrmLock
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtEmail.Font = New System.Drawing.Font("Microsoft Tai Le", 8.5!)
         Me.txtEmail.ForeColor = System.Drawing.Color.Silver
-        Me.txtEmail.Location = New System.Drawing.Point(127, 322)
+        Me.txtEmail.Location = New System.Drawing.Point(127, 330)
         Me.txtEmail.Name = "txtEmail"
         Me.txtEmail.Size = New System.Drawing.Size(153, 15)
         Me.txtEmail.TabIndex = 2
@@ -121,7 +121,7 @@ Partial Class FrmLock
         Me.txtPhone.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.txtPhone.Font = New System.Drawing.Font("Tahoma", 9.0!)
         Me.txtPhone.ForeColor = System.Drawing.Color.Silver
-        Me.txtPhone.Location = New System.Drawing.Point(127, 292)
+        Me.txtPhone.Location = New System.Drawing.Point(127, 300)
         Me.txtPhone.MaxLength = 11
         Me.txtPhone.Name = "txtPhone"
         Me.txtPhone.Size = New System.Drawing.Size(153, 15)
@@ -144,7 +144,7 @@ Partial Class FrmLock
         '
         Me.PictureBox4.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox4.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.PictureBox4.Location = New System.Drawing.Point(176, 549)
+        Me.PictureBox4.Location = New System.Drawing.Point(176, 550)
         Me.PictureBox4.Name = "PictureBox4"
         Me.PictureBox4.Size = New System.Drawing.Size(151, 30)
         Me.PictureBox4.TabIndex = 21
@@ -178,7 +178,7 @@ Partial Class FrmLock
         '
         Me.BtnHelp.BackColor = System.Drawing.Color.Transparent
         Me.BtnHelp.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.BtnHelp.Location = New System.Drawing.Point(198, 612)
+        Me.BtnHelp.Location = New System.Drawing.Point(198, 613)
         Me.BtnHelp.Name = "BtnHelp"
         Me.BtnHelp.Size = New System.Drawing.Size(105, 22)
         Me.BtnHelp.TabIndex = 28
