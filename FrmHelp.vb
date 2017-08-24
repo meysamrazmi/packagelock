@@ -5,12 +5,12 @@ Public Class FrmHelp
     End Sub
 
     Private Sub Button1_Click_1(sender As Object, e As EventArgs) Handles Button1.Click
-        Dim webAddress As String = "http://civil808.com/shop"
+        Dim webAddress As String = "http://waterhouse.ir/shop"
         Process.Start(webAddress)
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Dim webAddress As String = "http://civil808.com"
+        Dim webAddress As String = "http://waterhouse.ir"
         Process.Start(webAddress)
     End Sub
 
@@ -31,27 +31,27 @@ Public Class FrmHelp
         t.Start()
     End Sub
     Private Sub btn_about_Click(sender As Object, e As EventArgs) Handles btn_about.Click
-        Dim webAddress As String = "http://civil808.com/page/about"
+        Dim webAddress As String = "http://waterhouse.ir/node/33"
         Process.Start(webAddress)
     End Sub
 
     Private Sub btn_site_Click(sender As Object, e As EventArgs) Handles btn_site.Click
-        Dim webAddress As String = "http://civil808.com/"
+        Dim webAddress As String = "http://waterhouse.ir/"
         Process.Start(webAddress)
     End Sub
 
     Private Sub dotnet_Click(sender As Object, e As EventArgs) Handles dotnet.Click
-        Dim webAddress As String = "http://lock.civil808.com/repo/dotnet.exe"
+        Dim webAddress As String = "http://lock.waterhouse.ir/repo/dotnet.exe"
         Process.Start(webAddress)
     End Sub
 
     Private Sub codec_Click(sender As Object, e As EventArgs) Handles codec.Click
-        Dim webAddress As String = "http://lock.civil808.com/repo/Codec.exe"
+        Dim webAddress As String = "http://lock.waterhouse.ir/repo/Codec.exe"
         Process.Start(webAddress)
     End Sub
 
     Private Sub iran_Click(sender As Object, e As EventArgs) Handles iran.Click
-        Dim webAddress As String = "http://lock.civil808.com/repo/IRANSans.ttf"
+        Dim webAddress As String = "http://lock.waterhouse.ir/repo/IRANSans.ttf"
         Process.Start(webAddress)
     End Sub
 End Class

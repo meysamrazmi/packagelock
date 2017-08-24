@@ -55,7 +55,7 @@ Public Class FrmLock
         End If
         PackageTitle.Text = PackageName
         AppVersion = lblversion.Text
-        Me.Text = PackageName & " - 808 Package Lock"
+        Me.Text = PackageName & " - waterhouse Lock"
 
         Dim tempRegVal As String = get_setting("version", "").ToString
 
@@ -292,12 +292,12 @@ Public Class FrmLock
     End Sub
 
     Private Sub PictureBox3_Click(sender As Object, e As EventArgs) Handles PictureBox3.Click
-        Dim webAddress As String = "http://civil808.com/page/about"
+        Dim webAddress As String = "http://waterhouse.ir/node/33"
         Process.Start(webAddress)
     End Sub
 
     Private Sub PictureBox2_Click(sender As Object, e As EventArgs) Handles PictureBox2.Click
-        Dim webAddress As String = "http://civil808.com/"
+        Dim webAddress As String = "http://waterhouse.ir/"
         Process.Start(webAddress)
     End Sub
 

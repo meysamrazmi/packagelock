@@ -74,9 +74,9 @@ Partial Class FrmHelp
         Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent
         Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Location = New System.Drawing.Point(206, 590)
+        Me.Button2.Location = New System.Drawing.Point(206, 577)
         Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(338, 58)
+        Me.Button2.Size = New System.Drawing.Size(338, 71)
         Me.Button2.TabIndex = 9
         Me.Button2.UseVisualStyleBackColor = False
         '

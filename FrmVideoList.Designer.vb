@@ -27,16 +27,15 @@ Partial Class FrmVideoList
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FrmVideoList))
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.open_explorer = New System.Windows.Forms.Button()
         Me.help1_btn = New System.Windows.Forms.Button()
         Me.help_btn = New System.Windows.Forms.Button()
         Me.other_btn = New System.Windows.Forms.Button()
-        Me.lblTitle = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.PictureBox2 = New System.Windows.Forms.PictureBox()
         Me.PictureBox5 = New System.Windows.Forms.PictureBox()
         Me.ImageListView1 = New Manina.Windows.Forms.ImageListView()
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,7 +48,7 @@ Partial Class FrmVideoList
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TableLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.TableLayoutPanel1.ColumnCount = 3
+        Me.TableLayoutPanel1.ColumnCount = 4
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134.0!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 134.0!))
@@ -65,6 +64,16 @@ Partial Class FrmVideoList
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(1022, 56)
         Me.TableLayoutPanel1.TabIndex = 1
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.White
+        Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.FlowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 620)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1024, 56)
+        Me.FlowLayoutPanel1.TabIndex = 30
         '
         'open_explorer
         '
@@ -158,20 +167,6 @@ Partial Class FrmVideoList
         Me.other_btn.UseMnemonic = False
         Me.other_btn.UseVisualStyleBackColor = False
         '
-        'lblTitle
-        '
-        Me.lblTitle.AutoSize = True
-        Me.lblTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lblTitle.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.lblTitle.Font = New System.Drawing.Font("IRANSans Medium", 14.0!)
-        Me.lblTitle.ForeColor = System.Drawing.Color.White
-        Me.lblTitle.Location = New System.Drawing.Point(120, 17)
-        Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(231, 37)
-        Me.lblTitle.TabIndex = 24
-        Me.lblTitle.Text = "موسسه مهندسی آموزشی ۸۰۸"
-        Me.lblTitle.UseCompatibleTextRendering = True
-        '
         'PictureBox1
         '
         Me.PictureBox1.BackColor = System.Drawing.Color.Transparent
@@ -190,9 +185,9 @@ Partial Class FrmVideoList
         Me.PictureBox2.BackColor = System.Drawing.Color.Transparent
         Me.PictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.PictureBox2.Image = Global.ExpTree_Demo.My.Resources.Resources.logo_w
-        Me.PictureBox2.Location = New System.Drawing.Point(17, 17)
+        Me.PictureBox2.Location = New System.Drawing.Point(17, 7)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(85, 30)
+        Me.PictureBox2.Size = New System.Drawing.Size(179, 50)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox2.TabIndex = 29
         Me.PictureBox2.TabStop = False
@@ -228,26 +223,15 @@ Partial Class FrmVideoList
         Me.ImageListView1.Text = ""
         Me.ImageListView1.ThumbnailSize = New System.Drawing.Size(250, 250)
         '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.BackColor = System.Drawing.Color.White
-        Me.FlowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.FlowLayoutPanel1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 620)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1024, 56)
-        Me.FlowLayoutPanel1.TabIndex = 30
-        '
         'FrmVideoList
         '
-        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(171, Byte), Integer), CType(CType(71, Byte), Integer), CType(CType(188, Byte), Integer))
+        Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(118, Byte), Integer), CType(CType(190, Byte), Integer))
         Me.ClientSize = New System.Drawing.Size(1024, 676)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox5)
         Me.Controls.Add(Me.ImageListView1)
-        Me.Controls.Add(Me.lblTitle)
         Me.Controls.Add(Me.FlowLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -259,13 +243,11 @@ Partial Class FrmVideoList
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox5, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
-        Me.PerformLayout()
 
     End Sub
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents PictureBox1 As PictureBox
     Friend WithEvents PictureBox5 As PictureBox
-    Friend WithEvents lblTitle As Label
     Private WithEvents ImageListView1 As ImageListView
     Friend WithEvents PictureBox2 As PictureBox
     Friend WithEvents open_explorer As Button

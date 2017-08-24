@@ -13,26 +13,25 @@ Public Class FrmVideoList
 
     Dim minimized As Boolean
 
-    Private Sub FrmVideoList_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown, lblTitle.MouseDown
+    Private Sub FrmVideoList_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown
         drag = True
         mousex = Windows.Forms.Cursor.Position.X - Me.Left
         mousey = Windows.Forms.Cursor.Position.Y - Me.Top
     End Sub
 
-    Private Sub FrmVideoList_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove, lblTitle.MouseMove
+    Private Sub FrmVideoList_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove
         If drag Then
             Me.Top = Windows.Forms.Cursor.Position.Y - mousey
             Me.Left = Windows.Forms.Cursor.Position.X - mousex
         End If
     End Sub
 
-    Private Sub FrmVideoList_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseUp, lblTitle.MouseUp
+    Private Sub FrmVideoList_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseUp
         drag = False
     End Sub
 
     Private Sub FrmVideoList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim iran As Font = CustomFont.GetInstance(10, FontStyle.Regular)
-        lblTitle.Font = CustomFont.GetInstance(14, FontStyle.Regular)
         open_explorer.Font = iran
         help_btn.Font = iran
         help1_btn.Font = iran
@@ -161,12 +160,6 @@ Public Class FrmVideoList
 
     Private Sub FrmVideoList_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         FrmsOpenCount += 1
-    End Sub
-
-
-    Private Sub lblTitle_DoubleClick(sender As Object, e As EventArgs) Handles lblTitle.DoubleClick
-        Dim webAddress As String = "http://civil808.com/"
-        Process.Start(webAddress)
     End Sub
 
     Private Sub FrmVideoList_FormClosing(sender As Object, e As FormClosingEventArgs) Handles Me.FormClosing
