@@ -68,14 +68,16 @@ Public Class frmExplorerLike
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmExplorerLike))
         Me.MainMenu1 = New System.Windows.Forms.MainMenu(Me.components)
-        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
-        Me.mnuExit = New System.Windows.Forms.MenuItem()
         Me.MenuItem2 = New System.Windows.Forms.MenuItem()
         Me.mnuViewLargeIcons = New System.Windows.Forms.MenuItem()
         Me.mnuViewSmallIcons = New System.Windows.Forms.MenuItem()
         Me.mnuViewList = New System.Windows.Forms.MenuItem()
         Me.mnuViewDetails = New System.Windows.Forms.MenuItem()
+        Me.MenuItem1 = New System.Windows.Forms.MenuItem()
+        Me.mnuExit = New System.Windows.Forms.MenuItem()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.BtnOpenVideos = New System.Windows.Forms.Button()
+        Me.cmdExit = New System.Windows.Forms.Button()
         Me.ExpTree1 = New ExpTreeLib.ExpTree()
         Me.Splitter1 = New System.Windows.Forms.Splitter()
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -84,8 +86,6 @@ Public Class frmExplorerLike
         Me.ColumnHeaderSize = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.ColumnHeaderType = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
         Me.cmdCTest = New System.Windows.Forms.Button()
-        Me.BtnOpenVideos = New System.Windows.Forms.Button()
-        Me.cmdExit = New System.Windows.Forms.Button()
         Me.BtnBackFolder = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -121,6 +121,16 @@ Public Class frmExplorerLike
         Me.mnuViewDetails.Index = 3
         Me.mnuViewDetails.Text = "Details"
         '
+        'MenuItem1
+        '
+        Me.MenuItem1.Index = -1
+        Me.MenuItem1.Text = ""
+        '
+        'mnuExit
+        '
+        Me.mnuExit.Index = -1
+        Me.mnuExit.Text = ""
+        '
         'TableLayoutPanel1
         '
         Me.TableLayoutPanel1.ColumnCount = 2
@@ -130,13 +140,52 @@ Public Class frmExplorerLike
         Me.TableLayoutPanel1.Controls.Add(Me.BtnOpenVideos, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.cmdExit, 1, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 379)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 358)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(8)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Size = New System.Drawing.Size(905, 43)
         Me.TableLayoutPanel1.TabIndex = 5
+        '
+        'BtnOpenVideos
+        '
+        Me.BtnOpenVideos.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.BtnOpenVideos.BackColor = System.Drawing.Color.White
+        Me.BtnOpenVideos.FlatAppearance.BorderColor = System.Drawing.Color.Silver
+        Me.BtnOpenVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.BtnOpenVideos.Font = New System.Drawing.Font("IRANSans", 9.75!)
+        Me.BtnOpenVideos.Image = Global.ExpTree_Demo.My.Resources.Resources.arrow_left
+        Me.BtnOpenVideos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.BtnOpenVideos.Location = New System.Drawing.Point(3, 4)
+        Me.BtnOpenVideos.Name = "BtnOpenVideos"
+        Me.BtnOpenVideos.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
+        Me.BtnOpenVideos.Size = New System.Drawing.Size(115, 34)
+        Me.BtnOpenVideos.TabIndex = 4
+        Me.BtnOpenVideos.Text = "ویدیوها"
+        Me.BtnOpenVideos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.BtnOpenVideos.UseCompatibleTextRendering = True
+        Me.BtnOpenVideos.UseVisualStyleBackColor = False
+        '
+        'cmdExit
+        '
+        Me.cmdExit.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.cmdExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(54, Byte), Integer))
+        Me.cmdExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.cmdExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdExit.Font = New System.Drawing.Font("IRANSans", 9.75!)
+        Me.cmdExit.ForeColor = System.Drawing.Color.White
+        Me.cmdExit.Image = Global.ExpTree_Demo.My.Resources.Resources.logout
+        Me.cmdExit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cmdExit.Location = New System.Drawing.Point(801, 3)
+        Me.cmdExit.Name = "cmdExit"
+        Me.cmdExit.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
+        Me.cmdExit.Size = New System.Drawing.Size(101, 37)
+        Me.cmdExit.TabIndex = 3
+        Me.cmdExit.Text = "خروج"
+        Me.cmdExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdExit.UseCompatibleTextRendering = True
+        Me.cmdExit.UseVisualStyleBackColor = False
         '
         'ExpTree1
         '
@@ -211,45 +260,6 @@ Public Class frmExplorerLike
         Me.cmdCTest.Text = "پوشه اصلی"
         Me.cmdCTest.UseCompatibleTextRendering = True
         '
-        'BtnOpenVideos
-        '
-        Me.BtnOpenVideos.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.BtnOpenVideos.BackColor = System.Drawing.Color.White
-        Me.BtnOpenVideos.FlatAppearance.BorderColor = System.Drawing.Color.Silver
-        Me.BtnOpenVideos.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnOpenVideos.Font = New System.Drawing.Font("IRANSans", 9.75!)
-        Me.BtnOpenVideos.Image = Global.ExpTree_Demo.My.Resources.Resources.arrow_left
-        Me.BtnOpenVideos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.BtnOpenVideos.Location = New System.Drawing.Point(3, 4)
-        Me.BtnOpenVideos.Name = "BtnOpenVideos"
-        Me.BtnOpenVideos.Padding = New System.Windows.Forms.Padding(0, 0, 15, 0)
-        Me.BtnOpenVideos.Size = New System.Drawing.Size(115, 34)
-        Me.BtnOpenVideos.TabIndex = 4
-        Me.BtnOpenVideos.Text = "ویدیوها"
-        Me.BtnOpenVideos.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.BtnOpenVideos.UseVisualStyleBackColor = False
-        Me.BtnOpenVideos.UseCompatibleTextRendering = True
-        '
-        'cmdExit
-        '
-        Me.cmdExit.Anchor = System.Windows.Forms.AnchorStyles.Right
-        Me.cmdExit.BackColor = System.Drawing.Color.FromArgb(CType(CType(244, Byte), Integer), CType(CType(67, Byte), Integer), CType(CType(54, Byte), Integer))
-        Me.cmdExit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.cmdExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdExit.Font = New System.Drawing.Font("IRANSans", 9.75!)
-        Me.cmdExit.ForeColor = System.Drawing.Color.White
-        Me.cmdExit.Image = Global.ExpTree_Demo.My.Resources.Resources.logout
-        Me.cmdExit.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.cmdExit.Location = New System.Drawing.Point(801, 3)
-        Me.cmdExit.Name = "cmdExit"
-        Me.cmdExit.Padding = New System.Windows.Forms.Padding(15, 0, 0, 0)
-        Me.cmdExit.Size = New System.Drawing.Size(101, 37)
-        Me.cmdExit.TabIndex = 3
-        Me.cmdExit.Text = "خروج"
-        Me.cmdExit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdExit.UseVisualStyleBackColor = False
-        Me.cmdExit.UseCompatibleTextRendering = True
-        '
         'BtnBackFolder
         '
         Me.BtnBackFolder.Font = New System.Drawing.Font("IRANSans", 9.0!)
@@ -258,8 +268,8 @@ Public Class frmExplorerLike
         Me.BtnBackFolder.Size = New System.Drawing.Size(89, 27)
         Me.BtnBackFolder.TabIndex = 8
         Me.BtnBackFolder.Text = "بازگشت"
-        Me.BtnBackFolder.UseVisualStyleBackColor = True
         Me.BtnBackFolder.UseCompatibleTextRendering = True
+        Me.BtnBackFolder.UseVisualStyleBackColor = True
         '
         'frmExplorerLike
         '
