@@ -93,6 +93,7 @@ Partial Class FrmLock
         '
         Me.txtName.BackColor = System.Drawing.Color.White
         Me.txtName.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.txtName.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.txtName.Font = New System.Drawing.Font("IRANSans", 8.25!)
         Me.txtName.ForeColor = System.Drawing.Color.Silver
         Me.txtName.Location = New System.Drawing.Point(127, 264)
