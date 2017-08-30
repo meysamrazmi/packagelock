@@ -235,14 +235,21 @@ Public Class FrmLock
                     Dim response As String = HttpPostRequest(serverURI, "hash=" & hash.Trim)
 
                     Dim result As New jsonStructure
-                    If response.Length > 20 Then
-                        result = importJson(response)
-                    Else
+                    Try
+                        If response.Length > 20 Then
+                            result = importJson(response)
+                        Else
+                            lblStatus.Text = "خطای نامعلوم"
+                            lblStatus.ForeColor = Color.Black
+                            MsgBox("لطفا با پشتیبانی تماس بگیرید و تصویر این خطا را برای آنها بفرستید." & vbNewLine & jsondata, MsgBoxStyle.Critical, "خطای نامعلوم")
+                            Return
+                        End If
+                    Catch ee As Exception
                         lblStatus.Text = "خطای نامعلوم"
+                        MsgBox("خطای نامعلوم" & vbNewLine & ee.Message, MsgBoxStyle.Critical, "خطا")
+                        MsgBox(response, MsgBoxStyle.Critical, "خطا")
                         lblStatus.ForeColor = Color.Black
-                        MsgBox("لطفا با پشتیبانی تماس بگیرید و تصویر این خطا را برای آنها بفرستید." & vbNewLine & jsondata, MsgBoxStyle.Critical, "خطای نامعلوم")
-                        Return
-                    End If
+                    End Try
 
                     If result.ranber = (ranber * 73) - 320 Then
                         lblStatus.Text = "..."
