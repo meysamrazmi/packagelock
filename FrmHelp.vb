@@ -15,14 +15,14 @@ Public Class FrmHelp
     End Sub
 
     Private Sub LoadOpacity()
-        For i As Integer = 1 To 100
+        For i As Integer = 1 To 10
             Me.Invoke(New Action(Of Integer)(AddressOf LoadOpacityChild), i)
-            System.Threading.Thread.Sleep(5)
+            System.Threading.Thread.Sleep(20)
         Next
     End Sub
 
     Private Sub LoadOpacityChild(ByVal input As Integer)
-        Me.Opacity = input / 100
+        Me.Opacity = input / 10
     End Sub
 
     Private Sub Help_Load(sender As Object, e As EventArgs) Handles MyBase.Load

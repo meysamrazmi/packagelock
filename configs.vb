@@ -28,5 +28,6 @@ Module configs
     Public PackageName As String = "808"
     Public DataVersion As String = ""
     Public AppVersion As String = ""
+    Public JustFile As String = "0"
 
 End Module

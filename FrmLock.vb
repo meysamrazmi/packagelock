@@ -9,20 +9,20 @@ Public Class FrmLock
     Dim drag As Boolean
     Dim mousex As Integer
     Dim mousey As Integer
-    Private Sub FrmVideoList_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown
+    Private Sub Frm_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseDown
         drag = True
         mousex = Windows.Forms.Cursor.Position.X - Me.Left
         mousey = Windows.Forms.Cursor.Position.Y - Me.Top
     End Sub
 
-    Private Sub FrmVideoList_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove
+    Private Sub Frm_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove
         If drag Then
             Me.Top = Windows.Forms.Cursor.Position.Y - mousey
             Me.Left = Windows.Forms.Cursor.Position.X - mousex
         End If
     End Sub
 
-    Private Sub FrmVideoList_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseUp
+    Private Sub Frm_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseUp
         drag = False
     End Sub
 
@@ -50,12 +50,16 @@ Public Class FrmLock
         If SettingItems.Length > 6 Then
             PackageName = SettingItems(6).Trim
         End If
+        PackageTitle.Text = PackageName & " - (" & PackageCode & ")"
+        Me.Text = PackageName & " - 808 Package Lock"
+
         If SettingItems.Length > 8 Then
             DataVersion = SettingItems(8).ToLower.Trim
         End If
-        PackageTitle.Text = PackageName
+        If SettingItems.Length > 10 Then
+            JustFile = SettingItems(10).ToLower.Trim
+        End If
         AppVersion = lblversion.Text
-        Me.Text = PackageName & " - 808 Package Lock"
 
         Dim tempRegVal As String = get_setting("version", "").ToString
 
@@ -97,10 +101,19 @@ Public Class FrmLock
             Application.Restart()
         End If
 
+        Dim videos As String() = Directory.GetFiles(videoDetailsDir)
+        If videos.Length = 0 Then 'there is no video file in data
+            JustFile = "1"
+        End If
+
         If tempRegVal <> "" Then
-            Dim x As New FrmVideoList
-            x.Show()
-            Me.Hide()
+            If JustFile = "1" Then 'there is no video in this package
+                FrmExplorerObj.Show()
+                Me.Hide()
+            Else
+                FrmVideoObj.Show()
+                Me.Hide()
+            End If
 
             Dim threadCheckPUID As Thread = New Thread(AddressOf checkPUID)
             threadCheckPUID.SetApartmentState(ApartmentState.MTA)
@@ -108,8 +121,13 @@ Public Class FrmLock
             threadCheckPUID.Start()
 
             While threadCheckPUID.IsAlive = True
-                Thread.Sleep(500)
+                Thread.Sleep(5000)
             End While
+            If My.Computer.Network.IsAvailable Then
+                Dim syncUser As Thread = New Thread(AddressOf syncOfflineUser)
+                syncUser.SetApartmentState(ApartmentState.MTA)
+                syncUser.Start()
+            End If
         Else
             Me.Activate()
             isLogoWorkComplete = True
@@ -117,12 +135,6 @@ Public Class FrmLock
             t.SetApartmentState(ApartmentState.STA)
             t.Start()
 
-        End If
-
-        If My.Computer.Network.IsAvailable And tempRegVal <> "" Then
-            Dim syncUser As Thread = New Thread(AddressOf syncOfflineUser)
-            syncUser.SetApartmentState(ApartmentState.MTA)
-            syncUser.Start()
         End If
 
         'loading textfield to prevent data lost at every starting
@@ -174,9 +186,9 @@ Public Class FrmLock
 
     End Sub
     Private Sub LoadOpacity()
-        For i As Integer = 1 To 100
+        For i As Integer = 1 To 10
             Me.Invoke(New Action(Of Integer)(AddressOf LoadOpacityChild), i)
-            System.Threading.Thread.Sleep(10)
+            System.Threading.Thread.Sleep(30)
         Next
 
 
@@ -186,7 +198,7 @@ Public Class FrmLock
     End Sub
 
     Private Sub LoadOpacityChild(ByVal input As Integer)
-        Me.Opacity = input / 100
+        Me.Opacity = input / 10
     End Sub
 
     Private Sub TxtPass_TextChanged(sender As Object, e As EventArgs) Handles TxtPass.TextChanged
@@ -240,7 +252,7 @@ Public Class FrmLock
                     Else
                         lblStatus.Text = "خطای نامعلوم"
                         lblStatus.ForeColor = Color.Black
-                        MsgBox("لطفا با پشتیبانی تماس بگیرید و تصویر این خطا را برای آنها بفرستید." & vbNewLine & jsondata, MsgBoxStyle.Critical, "خطای نامعلوم")
+                        MsgBox("لطفا با پشتیبانی تماس بگیرید و تصویر این خطا را برای آنها بفرستید." & vbNewLine & jsondata & vbNewLine & response, MsgBoxStyle.Critical, "خطای نامعلوم")
                         Return
                     End If
 
@@ -258,9 +270,13 @@ Public Class FrmLock
                                 set_setting("user_phone", txtPhone.Text)
                                 set_setting("user_email", txtEmail.Text)
 
-                                Dim x As New FrmVideoList
-                                x.Show()
-                                Me.Hide()
+                                If JustFile = "1" Then 'there is no video in this package
+                                    FrmExplorerObj.Show()
+                                    Me.Hide()
+                                Else
+                                    FrmVideoObj.Show()
+                                    Me.Hide()
+                                End If
                             Case 2
                                 lblStatus.Text = "تعداد دفعات استفاده از سریال مجاز نیست."
                                 lblStatus.ForeColor = Color.Red
@@ -352,9 +368,13 @@ Public Class FrmLock
         If get_setting("version", "") = PUID Then
             lblStatus.Text = "فعال سازی آفلاین انجام شد!"
             lblStatus.ForeColor = Color.Green
-            Dim x As New FrmVideoList
-            x.Show()
-            Me.Hide()
+            If JustFile = "1" Then 'there is no video in this package
+                FrmExplorerObj.Show()
+                Me.Hide()
+            Else
+                FrmVideoObj.Show()
+                Me.Hide()
+            End If
         End If
 
     End Sub

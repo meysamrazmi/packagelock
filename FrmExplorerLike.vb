@@ -319,7 +319,9 @@ Public Class frmExplorerLike
                 killProcess("play808")
             End If
             Dim FileInfo As New FileInfo(selectedFileFullPath)
-            Dim fileOpenerThread As Thread = New Thread(Sub() open808FileThread(FileInfo))
+
+            'run player
+            Dim fileOpenerThread As Thread = New Thread(Sub() open808FileThread(FileInfo, get_setting("default_player", "")))
             fileOpenerThread.SetApartmentState(ApartmentState.MTA)
             fileOpenerThread.Priority = ThreadPriorityLevel.Highest
             fileOpenerThread.Start()
@@ -354,6 +356,10 @@ Public Class frmExplorerLike
         cmdExit.Font = iran
         BtnOpenVideos.Font = iran
 
+        If JustFile = "1" Then 'there is no video in this package
+            BtnOpenVideos.Visible = False
+        End If
+
         Me.Text = PackageName & " - All Files List"
 
         Me.Activate()
@@ -363,6 +369,7 @@ Public Class frmExplorerLike
             ExpTree1.RootItem = cDir
         End If
         FrmLoadingObj.Close()
+        isLogoWorkComplete = True
     End Sub
 #End Region
 

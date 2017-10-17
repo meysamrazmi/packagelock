@@ -42,22 +42,31 @@ Public Class FrmVideoList
 
         ImageListView1.SetRenderer(New ImageListViewRenderers.TilesRenderer) 'TilesRenderer
         Dim iniArray As New List(Of String())
-        Dim files As String() = Directory.GetFiles(videoDetailsDir)
-        ImageListView1.Items.AddRange(files)
+        Dim videos As String() = Directory.GetFiles(videoDetailsDir)
 
-        Me.WindowState = 0
+        If videos.Length = 0 Then 'there is no video file in data
+            JustFile = "1"
+            FrmsOpenCount -= 1
+            FrmExplorerObj.Show()
+            Me.Hide()
+        Else
+            ImageListView1.Items.AddRange(videos)
+            Me.WindowState = 0
+
+            Me.Activate()
+            Dim t As Thread = New Thread(AddressOf LoadOpacity)
+            t.SetApartmentState(ApartmentState.STA)
+            t.Start()
+        End If
+
         isLogoWorkComplete = True
-        Me.Activate()
-        Dim t As Thread = New Thread(AddressOf LoadOpacity)
-        t.SetApartmentState(ApartmentState.STA)
-        t.Start()
     End Sub
 
     Private Sub LoadOpacity()
         Try
-            For i As Integer = 1 To 100
+            For i As Integer = 1 To 10
                 Me.Invoke(New Action(Of Integer)(AddressOf LoadOpacityChild), i)
-                System.Threading.Thread.Sleep(5)
+                System.Threading.Thread.Sleep(30)
             Next
         Catch
         End Try
@@ -65,7 +74,7 @@ Public Class FrmVideoList
     End Sub
 
     Private Sub LoadOpacityChild(ByVal input As Integer)
-        Me.Opacity = input / 100
+        Me.Opacity = input / 10
     End Sub
 
 
@@ -153,7 +162,7 @@ Public Class FrmVideoList
             killProcess("play808")
         End If
         Dim FileInfo As New FileInfo(Directory.GetFiles(videoDir)(ImageListView1.SelectedItems(0).Index))
-        Dim fileOpenerThread As Thread = New Thread(Sub() open808FileThread(FileInfo))
+        Dim fileOpenerThread As Thread = New Thread(Sub() open808FileThread(FileInfo, get_setting("default_player", "")))
         fileOpenerThread.SetApartmentState(ApartmentState.MTA)
         fileOpenerThread.Priority = ThreadPriorityLevel.Highest
         fileOpenerThread.Start()

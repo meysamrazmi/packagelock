@@ -90,4 +90,14 @@ Public Class jsonStructure
             _ranber = value
         End Set
     End Property
+
+    Dim _extra As String
+    Public Property extra() As String
+        Get
+            Return _extra
+        End Get
+        Set(value As String)
+            _extra = value
+        End Set
+    End Property
 End Class

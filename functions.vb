@@ -106,20 +106,24 @@ Module functions
         Dim hash As String = Web.HttpUtility.UrlEncodeUnicode(AES_encrypt(jsondata))
         Dim response As String = HttpPostRequest(serverURI, "hash=" & hash.Trim)
 
-            Dim result As New jsonStructure
-            If response.Length > 20 Then
-                result = importJson(response)
-            Else
-                Exit Sub
-            End If
-
-        If result.ranber = (ranber * 73) - 320 And CInt(result.response) = 1 Then
+        Dim result As New jsonStructure
+        If response.Length > 20 Then
+            result = importJson(response)
+        Else
             Exit Sub
+        End If
 
-        ElseIf result.ranber = (ranber * 73) - 320 And (CInt(result.response) = 4 Or CInt(result.response) = 2) And get_setting("version", "") <> ""
+        If result.ranber = (ranber * 73) - 320 And (CInt(result.response) = 4 Or CInt(result.response) = 2) And get_setting("version", "") <> "" Then
             set_setting("version", "")
             MsgBox("اطلاعات شما در دیتابیس وجود ندارد." & vbNewLine & "اگر خطایی رخ داده است می توانید دوباره فعال سازی را انجام دهید و یا اینکه یا پشتیبانی تماس بگیرید.", MsgBoxStyle.Exclamation, "خطا")
             Application.Restart()
+        End If
+
+        If get_setting("default_player", "") <> result.extra And (result.extra = "pdf" Or result.extra = "film" Or result.extra = "film/pdf") Then 'pdf or film or film/pdf or 0
+            set_setting("default_player", result.extra)
+            MsgBox("Player " & result.extra & "پیش فرض شما تغییر کرد و شما می توانید برای اجرای فایل ها از player های سیستم خودتان استفاده کنید.", MsgBoxStyle.OkOnly, "اطلاعیه")
+        ElseIf result.extra = "0" Then
+            set_setting("default_player", "")
         End If
     End Sub
 
@@ -225,40 +229,46 @@ Module functions
         Return sBuilder.ToString()
     End Function
 
-    Public Sub open808FileThread(ByVal viewFilePath As FileInfo)
+    Public Sub open808FileThread(ByVal viewFilePath As FileInfo, Optional ByVal player As String = "")
         Try
             Dim extension As String = viewFilePath.Extension.ToLower
-            Select Case extension
-                Case ".pdf"
-                    extension = ".msc"
-                Case ".mp4"
-                    extension = ".chm"
-                Case ".mov"
-                    extension = ".chm"
-                Case ".avi"
-                    extension = ".chm"
-                Case ".mpg"
-                    extension = ".chm"
-                Case ".wmv"
-                    extension = ".chm"
-                Case ".mp3"
-                    extension = ".chm"
-                Case ".flv"
-                    extension = ".chm"
-                Case ".mkv"
-                    extension = ".chm"
-                Case ".bdmv"
-                    extension = ".chm"
-                Case ".evo"
-                    extension = ".chm"
-                Case ".hdmov"
-                    extension = ".chm"
-                Case ".ogm"
-                    extension = ".chm"
-                Case ".webm"
-                    extension = ".chm"
-                Case Else
-            End Select
+            If player = "film" And extension = ".pdf" Then
+                extension = ".msc"
+            ElseIf player = "pdf" Or player = "" Then
+                Select Case extension
+                    Case ".pdf"
+                        If player = "" Then
+                            extension = ".msc"
+                        End If
+                    Case ".mp4"
+                        extension = ".chm"
+                    Case ".mov"
+                        extension = ".chm"
+                    Case ".avi"
+                        extension = ".chm"
+                    Case ".mpg"
+                        extension = ".chm"
+                    Case ".wmv"
+                        extension = ".chm"
+                    Case ".mp3"
+                        extension = ".chm"
+                    Case ".flv"
+                        extension = ".chm"
+                    Case ".mkv"
+                        extension = ".chm"
+                    Case ".bdmv"
+                        extension = ".chm"
+                    Case ".evo"
+                        extension = ".chm"
+                    Case ".hdmov"
+                        extension = ".chm"
+                    Case ".ogm"
+                        extension = ".chm"
+                    Case ".webm"
+                        extension = ".chm"
+                    Case Else
+                End Select
+            End If
 
             'read view file
             Dim viewFile As Byte() = CryptBytes(Encoding.UTF32.GetString(password), File.ReadAllBytes(viewFilePath.FullName), False)
@@ -293,7 +303,9 @@ Module functions
             End Using
             File.Delete(filePath)
         Catch ee As Exception
-            MsgBox("خطا حین باز کردن فایل" & vbNewLine & ee.Message, MsgBoxStyle.Critical, "خطا")
+            If ee.Message <> "Object reference not set to an instance of an object." Then
+                MsgBox("خطا حین باز کردن فایل" & vbNewLine & ee.Message, MsgBoxStyle.Critical, "خطا")
+            End If
         End Try
 
     End Sub
