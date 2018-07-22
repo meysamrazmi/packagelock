@@ -206,7 +206,7 @@ Partial Class FrmLock
         Me.lblversion.Name = "lblversion"
         Me.lblversion.Size = New System.Drawing.Size(23, 13)
         Me.lblversion.TabIndex = 35
-        Me.lblversion.Text = "2.1"
+        Me.lblversion.Text = "2.2"
         '
         'Label11
         '
