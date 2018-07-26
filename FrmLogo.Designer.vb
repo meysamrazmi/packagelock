@@ -77,7 +77,7 @@ Partial Class FrmLogo
         Me.lblversion.Name = "lblversion"
         Me.lblversion.Size = New System.Drawing.Size(23, 13)
         Me.lblversion.TabIndex = 37
-        Me.lblversion.Text = "2.3"
+        Me.lblversion.Text = "2.4"
         '
         'Label11
         '

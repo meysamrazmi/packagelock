@@ -34,10 +34,10 @@ Public Class FrmLock
 
         'debug
         ParseCommandLineArgs()
-        If Path.GetFileName(Application.ExecutablePath) <> "Commander32.exe" And Path.GetFileName(Application.ExecutablePath) <> "Commander32.EXE" Then
-            MsgBox("خطایی در رابطه با مکان قرارگیری فایل ها وجود دارد." & vbNewLine & "لطفا فایل ها را به حالت اولیه برگردانید و سپس autorun.exe را اجرا کنید", MsgBoxStyle.Exclamation, "خطا")
-            Application.Exit()
-        End If
+        'If Path.GetFileName(Application.ExecutablePath) <> "Commander32.exe" And Path.GetFileName(Application.ExecutablePath) <> "Commander32.EXE" Then
+        '    MsgBox("خطایی در رابطه با مکان قرارگیری فایل ها وجود دارد." & vbNewLine & "لطفا فایل ها را به حالت اولیه برگردانید و سپس autorun.exe را اجرا کنید", MsgBoxStyle.Exclamation, "خطا")
+        '    Application.Exit()
+        'End If
 
         LocalKey = ToMD5(LocalKey + Environment.MachineName + Environment.UserName)
         LocalIV = ToMD5(LocalIV + Environment.MachineName + Environment.UserName)
@@ -57,7 +57,7 @@ Public Class FrmLock
             DataVersion = SettingItems(8).ToLower.Trim
         End If
         If SettingItems.Length > 10 Then
-            JustFile = SettingItems(10).ToLower.Trim
+            'JustFile = SettingItems(10).ToLower.Trim
         End If
         AppVersion = lblversion.Text
 
@@ -175,14 +175,15 @@ Public Class FrmLock
                 inputName = s.Remove(0, inputArgument.Length)
             End If
         Next
-        'inputName = "9xx7(y)aso9E4236lX5wf8"
-        If inputName <> "9xx7(y)aso9E4236lX5wf8" Then
-            MsgBox("خطایی در رابطه با تنظیمات برنامه رخ داده است." & vbNewLine & "لطفا با پشتیبانی تماس حاصل فرمایید.", MsgBoxStyle.Exclamation, "خطا")
-            Application.Exit()
-        Else
-            PHPConKey = Strings.Right(inputName, 6) & PHPConKey
-            PHPConIV = PHPConIV & Strings.Left(inputName, 7)
-        End If
+
+        inputName = "9xx7(y)aso9E4236lX5wf8"
+        PHPConKey = Strings.Right(inputName, 6) & PHPConKey
+        PHPConIV = PHPConIV & Strings.Left(inputName, 7)
+        'If inputName <> "9xx7(y)aso9E4236lX5wf8" Then
+        '    MsgBox("خطایی در رابطه با تنظیمات برنامه رخ داده است." & vbNewLine & "لطفا با پشتیبانی تماس حاصل فرمایید.", MsgBoxStyle.Exclamation, "خطا")
+        '    Application.Exit()
+        'Else
+        'End If
 
     End Sub
     Private Sub LoadOpacity()

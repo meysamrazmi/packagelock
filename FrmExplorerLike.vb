@@ -25,6 +25,9 @@ Public Class frmExplorerLike
     Friend WithEvents ColumnHeaderType As ColumnHeader
     Friend WithEvents cmdCTest As Button
     Friend WithEvents BtnBackFolder As Button
+    Friend WithEvents other_btn As Button
+    Friend WithEvents help_btn As Button
+    Friend WithEvents help1_btn As Button
     Private Shared Event1 As New ManualResetEvent(True)
 
 #Region " Windows Form Designer generated code "
@@ -87,6 +90,9 @@ Public Class frmExplorerLike
         Me.BtnOpenVideos = New System.Windows.Forms.Button()
         Me.cmdExit = New System.Windows.Forms.Button()
         Me.BtnBackFolder = New System.Windows.Forms.Button()
+        Me.other_btn = New System.Windows.Forms.Button()
+        Me.help_btn = New System.Windows.Forms.Button()
+        Me.help1_btn = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
@@ -123,12 +129,17 @@ Public Class frmExplorerLike
         '
         'TableLayoutPanel1
         '
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 177.0!))
+        Me.TableLayoutPanel1.ColumnCount = 4
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.BtnOpenVideos, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.cmdExit, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.other_btn, 0, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.help_btn, 1, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.help1_btn, 2, 0)
+        Me.TableLayoutPanel1.Controls.Add(Me.cmdExit, 3, 0)
         Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 379)
         Me.TableLayoutPanel1.Margin = New System.Windows.Forms.Padding(8)
@@ -261,6 +272,74 @@ Public Class frmExplorerLike
         Me.BtnBackFolder.UseVisualStyleBackColor = True
         Me.BtnBackFolder.UseCompatibleTextRendering = True
         '
+        'other_btn
+        '
+        Me.other_btn.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.other_btn.BackColor = System.Drawing.Color.Transparent
+        Me.other_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.other_btn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.other_btn.FlatAppearance.BorderSize = 0
+        Me.other_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.other_btn.Font = New System.Drawing.Font("IRANSans", 10.0!)
+        Me.other_btn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.other_btn.Image = Global.ExpTree_Demo.My.Resources.Resources.webpack
+        Me.other_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        'Me.other_btn.Location = New System.Drawing.Point(879, 10)
+        Me.other_btn.Margin = New System.Windows.Forms.Padding(3, 3, 17, 3)
+        Me.other_btn.Name = "other_btn"
+        Me.other_btn.Size = New System.Drawing.Size(126, 35)
+        Me.other_btn.TabIndex = 35
+        Me.other_btn.Text = "سایر محصولات"
+        Me.other_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.other_btn.UseCompatibleTextRendering = True
+        Me.other_btn.UseMnemonic = False
+        Me.other_btn.UseVisualStyleBackColor = False
+        '
+        'help1_btn
+        '
+        Me.help1_btn.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.help1_btn.BackColor = System.Drawing.Color.Transparent
+        Me.help1_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.help1_btn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.help1_btn.FlatAppearance.BorderSize = 0
+        Me.help1_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.help1_btn.Font = New System.Drawing.Font("IRANSans", 10.0!)
+        Me.help1_btn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.help1_btn.Image = Global.ExpTree_Demo.My.Resources.Resources.help_circle_outline
+        Me.help1_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        'Me.help1_btn.Location = New System.Drawing.Point(613, 10)
+        Me.help1_btn.Margin = New System.Windows.Forms.Padding(3, 3, 14, 3)
+        Me.help1_btn.Name = "help1_btn"
+        Me.help1_btn.Size = New System.Drawing.Size(115, 35)
+        Me.help1_btn.TabIndex = 34
+        Me.help1_btn.Text = "راهنمای برنامه"
+        Me.help1_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.help1_btn.UseCompatibleTextRendering = True
+        Me.help1_btn.UseMnemonic = False
+        Me.help1_btn.UseVisualStyleBackColor = False
+        '
+        'help_btn
+        '
+        Me.help_btn.Anchor = System.Windows.Forms.AnchorStyles.Right
+        Me.help_btn.BackColor = System.Drawing.Color.Transparent
+        Me.help_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.help_btn.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.help_btn.FlatAppearance.BorderSize = 0
+        Me.help_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.help_btn.Font = New System.Drawing.Font("IRANSans", 10.0!)
+        Me.help_btn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
+        Me.help_btn.Image = Global.ExpTree_Demo.My.Resources.Resources.help_circle_outline
+        Me.help_btn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight
+        'Me.help_btn.Location = New System.Drawing.Point(747, 10)
+        Me.help_btn.Margin = New System.Windows.Forms.Padding(3, 3, 14, 3)
+        Me.help_btn.Name = "help_btn"
+        Me.help_btn.Size = New System.Drawing.Size(115, 35)
+        Me.help_btn.TabIndex = 34
+        Me.help_btn.Text = "راهنمای پکیج"
+        Me.help_btn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.help_btn.UseCompatibleTextRendering = True
+        Me.help_btn.UseMnemonic = False
+        Me.help_btn.UseVisualStyleBackColor = False        '
         'frmExplorerLike
         '
         Me.AutoScaleBaseSize = New System.Drawing.Size(5, 13)
@@ -353,11 +432,18 @@ Public Class frmExplorerLike
         Dim iran As Font = CustomFont.GetInstance(10, FontStyle.Regular)
         cmdCTest.Font = CustomFont.GetInstance(9, FontStyle.Regular)
         BtnBackFolder.Font = CustomFont.GetInstance(9, FontStyle.Regular)
+        other_btn.Font = CustomFont.GetInstance(9, FontStyle.Regular)
+        help_btn.Font = CustomFont.GetInstance(9, FontStyle.Regular)
+        help_btn.Font = CustomFont.GetInstance(9, FontStyle.Regular)
         cmdExit.Font = iran
         BtnOpenVideos.Font = iran
 
         If JustFile = "1" Then 'there is no video in this package
             BtnOpenVideos.Visible = False
+        Else
+            other_btn.Visible = False
+            help_btn.Visible = False
+            help1_btn.Visible = False
         End If
 
         Me.Text = PackageName & " - All Files List"
@@ -581,6 +667,30 @@ Public Class frmExplorerLike
         FrmsOpenCount += 1
     End Sub
 
+    Private Sub help1_btn_Click(sender As Object, e As EventArgs) Handles help1_btn.Click
+        Dim tfrm As New FrmHelp
+        tfrm.ShowDialog()
+    End Sub
+
+    Private Sub help_btn_Click(sender As Object, e As EventArgs) Handles help_btn.Click
+        Dim proc As ProcessStartInfo = New ProcessStartInfo
+        proc.UseShellExecute = True
+        proc.FileName = "player\book\play808.exe"
+        proc.Arguments = AES_encrypt(helpDir & "HP.msc", "JH8d*42(sF964Zc=820Di2!sF353EG#^", "@4gD348dsghFgjr$92Dk4036ksga28fH")
+        Using exeProcess As Process = Process.Start(proc)
+            exeProcess.WaitForExit()
+        End Using
+    End Sub
+
+    Private Sub other_btn_Click(sender As Object, e As EventArgs) Handles other_btn.Click
+        Dim proc As ProcessStartInfo = New ProcessStartInfo
+        proc.UseShellExecute = True
+        proc.FileName = "player\book\play808.exe"
+        proc.Arguments = AES_encrypt(helpDir & "OP.msc", "JH8d*42(sF964Zc=820Di2!sF353EG#^", "@4gD348dsghFgjr$92Dk4036ksga28fH")
+        Using exeProcess As Process = Process.Start(proc)
+            exeProcess.WaitForExit()
+        End Using
+    End Sub
 
 
     Private Sub frmExplorerLike_SizeChanged(sender As Object, e As EventArgs) Handles Me.SizeChanged

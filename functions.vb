@@ -119,6 +119,13 @@ Module functions
             Application.Restart()
         End If
 
+        'everyone should see videos with their default video player 
+        If result.extra = "pdf" Then
+            result.extra = "film/pdf"
+        Else result.extra = ""
+            result.extra = "film"
+        End If
+
         If get_setting("default_player", "") <> result.extra And (result.extra = "pdf" Or result.extra = "film" Or result.extra = "film/pdf") Then 'pdf or film or film/pdf or 0
             set_setting("default_player", result.extra)
             MsgBox("Player " & result.extra & "پیش فرض شما تغییر کرد و شما می توانید برای اجرای فایل ها از player های سیستم خودتان استفاده کنید.", MsgBoxStyle.OkOnly, "اطلاعیه")
