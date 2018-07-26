@@ -34,7 +34,7 @@ Public Class FrmLock
 
         'debug
         ParseCommandLineArgs()
-        If Path.GetFileName(Application.ExecutablePath) <> "Commander32.exe" Then
+        If Path.GetFileName(Application.ExecutablePath) <> "Commander32.exe" And Path.GetFileName(Application.ExecutablePath) <> "Commander32.EXE" Then
             MsgBox("خطایی در رابطه با مکان قرارگیری فایل ها وجود دارد." & vbNewLine & "لطفا فایل ها را به حالت اولیه برگردانید و سپس autorun.exe را اجرا کنید", MsgBoxStyle.Exclamation, "خطا")
             Application.Exit()
         End If
@@ -175,7 +175,7 @@ Public Class FrmLock
                 inputName = s.Remove(0, inputArgument.Length)
             End If
         Next
-
+        'inputName = "9xx7(y)aso9E4236lX5wf8"
         If inputName <> "9xx7(y)aso9E4236lX5wf8" Then
             MsgBox("خطایی در رابطه با تنظیمات برنامه رخ داده است." & vbNewLine & "لطفا با پشتیبانی تماس حاصل فرمایید.", MsgBoxStyle.Exclamation, "خطا")
             Application.Exit()

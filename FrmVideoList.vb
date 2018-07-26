@@ -1,15 +1,17 @@
 ﻿Imports System.Collections.Generic
 Imports System.IO
+Imports System.Linq
 Imports System.Reflection
+Imports System.Text
 Imports System.Threading
 Imports Manina.Windows.Forms
 
 Public Class FrmVideoList
     Private FrmExplorer As New frmExplorerLike
-
     Dim drag As Boolean
     Dim mousex As Integer
     Dim mousey As Integer
+
 
     Dim minimized As Boolean
 
@@ -30,6 +32,11 @@ Public Class FrmVideoList
         drag = False
     End Sub
 
+    'helper function to work with base64
+    Public Function DecodeBase64(input As String) As String
+        Return System.Text.Encoding.UTF8.GetString(Convert.FromBase64String(input))
+    End Function
+
     Private Sub FrmVideoList_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim iran As Font = CustomFont.GetInstance(10, FontStyle.Regular)
         lblTitle.Font = CustomFont.GetInstance(14, FontStyle.Regular)
@@ -40,9 +47,15 @@ Public Class FrmVideoList
 
         Me.Text = PackageName & " - Video List"
 
-        ImageListView1.SetRenderer(New ImageListViewRenderers.TilesRenderer) 'TilesRenderer
-        Dim iniArray As New List(Of String())
+        ImageListView1.SetRenderer(New ImageListViewRenderers.XPRenderer) 'TilesRenderer 'XPRenderer
+        Dim iniArray As New List(Of String)
         Dim videos As String() = Directory.GetFiles(videoDetailsDir)
+
+        For Each video As String In videos
+            iniArray.Add(video)
+        Next
+        iniArray = iniArray.OrderBy(Function(q) Int32.Parse(q.Split("\").Last().Split(".").First)).ToList()
+        Dim sortedVideos As String() = iniArray.ToArray()
 
         If videos.Length = 0 Then 'there is no video file in data
             JustFile = "1"
@@ -50,9 +63,27 @@ Public Class FrmVideoList
             FrmExplorerObj.Show()
             Me.Hide()
         Else
-            ImageListView1.Items.AddRange(videos)
-            Me.WindowState = 0
+            Dim iniPath As String = Path.Combine(AppDomain.CurrentDomain.BaseDirectory & "data\view\", "details.ini")
+            Dim readText As String = File.ReadAllText(iniPath)
+            Dim SettingItems() As String = readText.Split(vbNewLine)
+            Dim settings As New List(Of String())
+            For Each rawDetails As String In SettingItems
+                Dim details() As String = rawDetails.Split("@")
+                settings.Add(details)
+            Next
 
+            Dim i As Integer = 0
+            For Each fileName As String In sortedVideos
+                Dim item As New ImageListViewItem
+                item.FileName = fileName
+                item.Text = DecodeBase64(settings.Item(i)(1))
+                item.Text += If(item.Text.Equals("") Or settings.Item(i)(2).Equals(""), "", "    |    ") + DecodeBase64(settings.Item(i)(2))
+                item.Text += If(item.Text.Equals("") Or settings.Item(i)(2).Equals(""), "", "    |    ") + DecodeBase64(settings.Item(i)(3))
+                ImageListView1.Items.Add(item)
+                i = i + 1
+            Next
+
+            Me.WindowState = 0
             Me.Activate()
             Dim t As Thread = New Thread(AddressOf LoadOpacity)
             t.SetApartmentState(ApartmentState.STA)
